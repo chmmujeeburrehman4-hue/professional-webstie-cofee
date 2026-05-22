@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* HEADER KI FIX CODING */
+        .mj-header-fixed {
+            width: 100%;
+            position: fixed; /* Scroll ke sath sath chalay ga */
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95); /* Light white background with slight transparency */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Halka sa shadow taake slider se alag dikhe */
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+
+        /* Logo aur Menu ka color fix */
+        .mj-logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333; /* Dark color taake white background par nazar aaye */
+            text-decoration: none;
+        }
+
+        .mj-logo-text span {
+            color: #e08a1e;
+        }
+
+        .mj-nav-list {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .mj-nav-list li a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .mj-nav-list li a:hover {
+            color: #e08a1e;
+        }
+
+        /* Phone Number Styling */
+        .mj-contact-info {
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Page Content Spacing (Taake header content ko chhupaye na) */
+        body {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="mj-header-fixed">
+        <a href="#" class="mj-logo-text">Coffee<span>.</span></a>
+        
+        <nav>
+            <ul class="mj-nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-1.html">About</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Review.html">Review</a></li>
+            </ul>
+        </nav>
+
+        <div class="mj-contact-info">
+            <i class="fa fa-phone"></i> 0022-0303-2030
+        </div>
+    </header>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Room Booking | Coffee House</title>
+    <style>
+        /* 1. Global Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #121212; color: #fff; line-height: 1.6; }
+
+        .pr-room-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+
+        /* 2. Header Section */
+        .pr-room-header { text-align: center; margin-bottom: 60px; }
+        .pr-room-header h1 { font-size: 45px; color: #e08a1e; text-transform: uppercase; letter-spacing: 2px; }
+        .pr-room-header p { color: #aaa; font-size: 18px; max-width: 700px; margin: 15px auto; }
+
+        /* 3. Feature 6-Box Grid (Clean & Neat) */
+        .pr-room-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 25px; 
+            margin-bottom: 80px;
+        }
+
+        .pr-room-card {
+            background: #1e1e1e;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: 0.4s;
+            text-align: center;
+        }
+
+        .pr-room-card:hover {
+            border-color: #e08a1e;
+            transform: translateY(-10px);
+        }
+
+        .pr-room-card img { width: 100%; height: 200px; object-fit: cover; }
+
+        .pr-room-info { padding: 25px; }
+        .pr-room-info h3 { margin-bottom: 10px; font-size: 20px; color: #e08a1e; }
+        .pr-room-info p { font-size: 14px; color: #bbb; margin-bottom: 20px; }
+
+        /* 4. Booking Section */
+        .pr-booking-section {
+            background: #1e1e1e;
+            padding: 50px;
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .pr-booking-text h2 { font-size: 35px; margin-bottom: 20px; color: #e08a1e; }
+        
+        .pr-form { display: flex; flex-direction: column; gap: 15px; }
+        .pr-form input, .pr-form select {
+            padding: 15px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .pr-form button {
+            background: #e08a1e;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .pr-form button:hover { background: #fff; color: #e08a1e; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .pr-room-grid { grid-template-columns: repeat(2, 1fr); }
+            .pr-booking-section { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .pr-room-grid { grid-template-columns: 1fr; }
+            .pr-room-header h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pr-room-container">
+        
+        <div class="pr-room-header">
+            <h1>VIP Private Room</h1>
+            <p>Doston ke saath private meetings ya special events ke liye humara premium lounge book karein.</p>
+        </div>
+
+        <div class="pr-room-grid">
+            <div class="pr-room-card">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" alt="Room 1">
+                <div class="pr-room-info">
+                    <h3>Fast Wi-Fi</h3>
+                    <p>Meeting ke liye high-speed internet ki sahulet available hai.</p>
+                </div>
+            </div>
+
+            <div class="pr-room-card">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500" alt="Room 2">
+                <div class="pr-room-info">
+                    <h3>Air Conditioned</h3>
+                    <p>Bilkul sukoon aur thandak wala mahool.</p>
+                </div>
+            </div>
+
+            <div class="pr-room-card">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500" alt="Room 3">
+                <div class="pr-room-info">
+                    <h3>Private Sound</h3>
+                    <p>Aap apni marzi ka music ya presentation chala sakte hain.</p>
+                </div>
+            </div>
+
+            <div class="pr-room-card">
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=500" alt="Room 4">
+                <div class="pr-room-info">
+                    <h3>Personal Waiter</h3>
+                    <p>VIP service ke liye aik waiter hamesha hazir rahega.</p>
+                </div>
+            </div>
+
+            <div class="pr-room-card">
+                <img src="https://images.unsplash.com/photo-1463797221720-6b07e6426c24?w=500" alt="Room 5">
+                <div class="pr-room-info">
+                    <h3>Luxury Seating</h3>
+                    <p>Intehai comfortable sofas aur premium tables.</p>
+                </div>
+            </div>
+
+            <div class="pr-room-card">
+                <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=500" alt="Room 6">
+                <div class="pr-room-info">
+                    <h3>6-8 Persons</h3>
+                    <p>Choti party ya family dinner ke liye best space.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pr-booking-section">
+            <div class="pr-booking-text">
+                <h2>Reserve Your Spot</h2>
+                <p>Private room ki booking ke liye nichay diya gaya form fill karein. Humari team aap se jald raabta karegi.</p>
+            </div>
+            <form class="pr-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <select required>
+                    <option value="">Select Time Slot</option>
+                    <option>Morning (10am - 1pm)</option>
+                    <option>Evening (4pm - 7pm)</option>
+                    <option>Night (8pm - 11pm)</option>
+                </select>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.footer2-main-ftr2-d345 {
+    width: 100%;
+    background-color: #1e1e1e;
+    max-width: 1300px;
+    margin: 0px auto;
+    overflow-x: hidden;
+}
+.footer2-inner-ftr2-d345 {
+    width: 100%;
+     padding: 20px 20px;
+}
+.footer2-flex-ftr2-d345 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.footer2-col-ftr2-d345 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer2-logo-ftr2-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.footer2-logo-ftr2-d345 svg {
+    width: 22px;
+    height: 22px;
+    stroke: #aaaaaa;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.footer2-logo-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.footer2-desc-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.8;
+    max-width: 220px;
+    margin: 0px;
+}
+.footer2-address-ftr2-d345 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 6px;
+}
+.footer2-address-ftr2-d345 svg {
+    width: 16px;
+    height: 16px;
+    stroke: #888888;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.footer2-address-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.7;
+}
+.footer2-col-title-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0px 0px 6px 0px;
+}
+.footer2-links-ftr2-d345 {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer2-links-ftr2-d345 li a {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer2-links-ftr2-d345 li a:hover {
+    color: #e08a1e;
+}
+.footer2-bottom-ftr2-d345 {
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+.footer2-bottom-ftr2-d345 p {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #666666;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+
+/* ========== 1024px ========== */
+@media (max-width: 1024px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 24px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 180px;
+    }
+}
+
+
+/* ========== 768px ========== */
+@media (max-width: 768px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 100%;
+    }
+}
+
+
+/* ========== 480px ========== */
+@media (max-width: 480px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 30px;
+        margin-bottom: 24px;
+    }
+    .footer2-col-title-ftr2-d345 {
+        font-size: 15px;
+    }
+    .footer2-links-ftr2-d345 li a {
+        font-size: 13px;
+    }
+    .footer2-logo-ftr2-d345 span {
+        font-size: 16px;
+    }
+}
+</style>
+
+<div class="footer2-main-ftr2-d345">
+    <div class="footer2-inner-ftr2-d345">
+
+        <div class="footer2-flex-ftr2-d345">
+
+            <!-- Col 1 — Logo + Desc + Address -->
+            <div class="footer2-col-ftr2-d345">
+                <div class="footer2-logo-ftr2-d345">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 2h12v4a6 6 0 01-12 0V2z"/>
+                        <rect x="4" y="18" width="16" height="2" rx="1"/>
+                        <path d="M18 4h2a2 2 0 010 4h-2"/>
+                    </svg>
+                    <span>Coffee.</span>
+                </div>
+                <p class="footer2-desc-ftr2-d345">Coffee is a cafe that serve many variant of coffee and other dishes with very comfortable place.</p>
+                <div class="footer2-address-ftr2-d345">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                    <span>USA Californa 65 South Fifth St.Sicklerville, NJ 08081</span>
+                </div>
+            </div>
+
+            <!-- Col 2 — Facility -->
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Facility</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="private Room.html">Private Room</a></li>
+                    <li><a href="Meeting Room.html">Meeting Room</a></li>
+                    <li><a href="Event Room.html">Event Room</a></li>
+                    <li><a href="Creative Studio.html">Creative Studio</a></li>
+                    <li><a href="Custom Room.html">Custom Room</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Product</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="coffee.html">Coffee</a></li>
+                    <li><a href="beverages.html">Beverages</a></li>
+                    <li><a href="dishes.html">Dishes</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Support</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="about-1.html">About Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="Private Policy.html">Privacy Policy</a></li>
+                    <li><a href="Help Us.html">Help Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer2-bottom-ftr2-d345">
+            <p>&copy; CodingLab. All rigths reserved</p>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee.</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+}
+    </style>
+</head>
+<body>
+
+<!-- ========== ENTRY POPUP ========== -->
+<style>
+.popup-overlay-pvr-d345 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-box-pvr-d345 {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 50px 40px;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+.popup-logo-pvr-d345 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.popup-logo-pvr-d345 svg {
+    width: 32px;
+    height: 32px;
+}
+.popup-logo-pvr-d345 span {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e1e1e;
+}
+.popup-heading-pvr-d345 {
+    font-family: sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e1e1e;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+.popup-text-pvr-d345 {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+.popup-buttons-pvr-d345 {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+}
+.popup-btn-allow-pvr-d345 {
+    background-color: #c87941;
+    color: #ffffff;
+    border: none;
+    padding: 13px 32px;
+    border-radius: 30px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.popup-btn-allow-pvr-d345:hover {
+    background-color: #b5723f;
+}
+.popup-btn-deny-pvr-d345 {
+    background-color: transparent;
+    color: #555555;
+    border: 1.5px solid #cccccc;
+    padding: 13px 32px;
+    border-radius: 30px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border 0.2s, color 0.2s;
+}
+.popup-btn-deny-pvr-d345:hover {
+    border-color: #999999;
+    color: #333333;
+}
+.popup-denied-pvr-d345 {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+.popup-denied-pvr-d345 p {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #c87941;
+    font-weight: 600;
+    line-height: 1.6;
+}
+@media (max-width: 480px) {
+    .popup-box-pvr-d345 {
+        padding: 36px 24px;
+    }
+    .popup-heading-pvr-d345 {
+        font-size: 19px;
+    }
+    .popup-buttons-pvr-d345 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .popup-btn-allow-pvr-d345 {
+        width: 100%;
+    }
+    .popup-btn-deny-pvr-d345 {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="popup-overlay-pvr-d345" id="popup-overlay-pvr-d345">
+    <div class="popup-box-pvr-d345">
+        <div class="popup-logo-pvr-d345">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="18" r="18" fill="#e08a1e" opacity="0.20"/>
+                <path d="M10 14h16v3a8 8 0 01-16 0v-3z" fill="#e08a1e"/>
+                <rect x="24" y="12" width="4" height="6" rx="2" fill="#e08a1e" opacity="0.7"/>
+                <rect x="12" y="25" width="12" height="2" rx="1" fill="#e08a1e" opacity="0.6"/>
+            </svg>
+            <span>Coffee.</span>
+        </div>
+        <div id="popup-main-content-pvr-d345">
+            <h2 class="popup-heading-pvr-d345">Welcome to Coffee.</h2>
+            <p class="popup-text-pvr-d345">Welcome to our coffee website. Click Allow to enter and explore our menu, or click Block to exit.</p>
+            <div class="popup-buttons-pvr-d345">
+                <button class="popup-btn-allow-pvr-d345" id="popup-allow-pvr-d345">Allow</button>
+                <button class="popup-btn-deny-pvr-d345" id="popup-deny-pvr-d345">Block</button>
+            </div>
+        </div>
+        <div class="popup-denied-pvr-d345" id="popup-denied-pvr-d345">
+            <p>You have chosen not to visit.<br>You cannot access this website.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ========== SCROLL TO TOP BUTTON ========== -->
+<style>
+.scroll-top-stt-d345 {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    background-color: #c87941;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background 0.2s;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.scroll-top-stt-d345.show-stt-d345 {
+    opacity: 1;
+    visibility: visible;
+}
+.scroll-top-stt-d345:hover {
+    background-color: #b5723f;
+}
+.scroll-top-stt-d345 svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+@media (max-width: 480px) {
+    .scroll-top-stt-d345 {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+    .scroll-top-stt-d345 svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+</style>
+
+<button class="scroll-top-stt-d345" id="scroll-top-stt-d345" title="Back to Top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<!-- ========== HEADER ========== -->
+<style>
+.header-main-hdr-d345 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.header-inner-hdr-d345 {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    gap: 20px;
+    padding: 0 20px;
+}
+.header-logo-hdr-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.header-logo-hdr-d345 svg {
+    width: 28px;
+    height: 28px;
+}
+.header-logo-hdr-d345 span {
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.header-nav-hdr-d345 {
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-nav-hdr-d345 ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 6px;
+    align-items: center;
+}
+.header-nav-hdr-d345 ul li {
+    list-style: none;
+    position: relative;
+}
+.header-nav-hdr-d345 ul li a {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 14px;
+    display: inline-block;
+    transition: color 0.2s;
+}
+.header-nav-hdr-d345 ul li a:hover {
+    color: #e08a1e;
+}
+.header-nav-hdr-d345 ul li.active-hdr-d345 a {
+    color: #ffffff;
+}
+.header-nav-hdr-d345 ul li.active-hdr-d345::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #e08a1e;
+    border-radius: 50%;
+    margin: 2px auto 0 auto;
+}
+.header-phone-hdr-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+.header-phone-hdr-d345 svg {
+    width: 18px;
+    height: 18px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.header-phone-hdr-d345 span {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 500;
+}
+.hamburger-hdr-d345 {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 4px;
+}
+.hamburger-hdr-d345 span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+@media (max-width: 1024px) {
+    .header-inner-hdr-d345 {
+        padding: 0 30px;
+    }
+    .header-nav-hdr-d345 ul li a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .header-phone-hdr-d345 span {
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    .header-inner-hdr-d345 {
+        position: relative;
+        flex-wrap: nowrap;
+        min-height: 60px;
+        padding: 0 20px;
+    }
+    .hamburger-hdr-d345 {
+        display: flex;
+    }
+    .header-nav-hdr-d345 {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(44, 24, 16, 0.97);
+        margin: 0;
+        z-index: 999;
+    }
+    .header-nav-hdr-d345.open-hdr-d345 {
+        display: block;
+    }
+    .header-nav-hdr-d345 ul {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+    }
+    .header-nav-hdr-d345 ul li {
+        width: 100%;
+        border-bottom: 1px solid #ffffff15;
+    }
+    .header-nav-hdr-d345 ul li a {
+        display: block;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    .header-nav-hdr-d345 ul li.active-hdr-d345::after {
+        display: none;
+    }
+    .header-phone-hdr-d345 {
+        display: none;
+    }
+}
+@media (max-width: 480px) {
+    .header-inner-hdr-d345 {
+        min-height: 55px;
+        padding: 0 16px;
+    }
+    .header-logo-hdr-d345 span {
+        font-size: 18px;
+    }
+    .header-nav-hdr-d345 {
+        top: 55px;
+    }
+}
+</style>
+
+<div class="header-main-hdr-d345">
+    <div class="header-inner-hdr-d345">
+        <a href="index.html" class="header-logo-hdr-d345">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="18" r="18" fill="#e08a1e" opacity="0.20"/>
+                <path d="M10 14h16v3a8 8 0 01-16 0v-3z" fill="#e08a1e"/>
+                <rect x="24" y="12" width="4" height="6" rx="2" fill="#e08a1e" opacity="0.7"/>
+                <rect x="12" y="25" width="12" height="2" rx="1" fill="#e08a1e" opacity="0.6"/>
+            </svg>
+            <span>Coffee.</span>
+        </a>
+        <nav class="header-nav-hdr-d345" id="header-nav-hdr-d345">
+            <ul>
+                <li class="active-hdr-d345"><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="review.html">Review</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+        <div class="header-phone-hdr-d345">
+            <svg viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+            </svg>
+            <span>0022-0303-2030</span>
+        </div>
+        <button class="hamburger-hdr-d345" id="hamburger-hdr-d345">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</div>
+
+<!-- ========== HERO SLIDER ========== -->
+<style>
+.slider-main-sldr-d345 {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    max-width: 1300px;
+    margin: 0px auto;
+}
+.slider-track-sldr-d345 {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+.slider-slide-sldr-d345 {
+    min-width: 100%;
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-slide-sldr-d345 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.slider-overlay-sldr-d345 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+.slider-content-sldr-d345 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.slider-tagline-sldr-d345 {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.slider-heading-sldr-d345 {
+    font-family: sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 30px 0;
+}
+.slider-btn-sldr-d345 {
+    display: inline-block;
+    background-color: #e08a1e;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 13px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.slider-btn-sldr-d345:hover {
+    background-color: #c97a10;
+}
+.slider-arrow-sldr-d345 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.slider-arrow-sldr-d345:hover {
+    background: rgba(255, 255, 255, 0.30);
+}
+.slider-arrow-sldr-d345 svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.slider-prev-sldr-d345 {
+    left: 30px;
+}
+.slider-next-sldr-d345 {
+    right: 30px;
+}
+@media (max-width: 1024px) {
+    .slider-heading-sldr-d345 {
+        font-size: 40px;
+    }
+    .slider-content-sldr-d345 {
+        max-width: 500px;
+    }
+}
+@media (max-width: 768px) {
+    .slider-heading-sldr-d345 {
+        font-size: 32px;
+    }
+    .slider-tagline-sldr-d345 {
+        font-size: 14px;
+    }
+    .slider-btn-sldr-d345 {
+        font-size: 14px;
+        padding: 11px 28px;
+    }
+    .slider-prev-sldr-d345 {
+        left: 16px;
+    }
+    .slider-next-sldr-d345 {
+        right: 16px;
+    }
+    .slider-arrow-sldr-d345 {
+        width: 38px;
+        height: 38px;
+    }
+}
+@media (max-width: 480px) {
+    .slider-heading-sldr-d345 {
+        font-size: 26px;
+    }
+    .slider-tagline-sldr-d345 {
+        font-size: 13px;
+    }
+    .slider-btn-sldr-d345 {
+        font-size: 13px;
+        padding: 10px 24px;
+    }
+    .slider-arrow-sldr-d345 {
+        width: 34px;
+        height: 34px;
+    }
+    .slider-arrow-sldr-d345 svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+</style>
+
+<div class="slider-main-sldr-d345">
+    <div class="slider-track-sldr-d345" id="slider-track-sldr-d345">
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg1.jpg" alt="Coffee Slide 1">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">We really like what we do.</p>
+                <h1 class="slider-heading-sldr-d345">Coffee Beans with a Perfect Aroma</h1>
+                <a href="menu.html" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg2.jpg" alt="Coffee Slide 2">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">Fresh brewed every morning.</p>
+                <h1 class="slider-heading-sldr-d345">Start Your Day with a Perfect Cup</h1>
+                <a href="menu.html" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg3.jpg" alt="Coffee Slide 3">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">Experience the finest blends.</p>
+                <h1 class="slider-heading-sldr-d345">Rich Flavor in Every Single Sip</h1>
+                <a href="menu.html" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+    </div>
+    <button class="slider-arrow-sldr-d345 slider-prev-sldr-d345" id="slider-prev-sldr-d345">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="slider-arrow-sldr-d345 slider-next-sldr-d345" id="slider-next-sldr-d345">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+</div>
+
+<!-- ========== ABOUT SECTION ========== -->
+<style>
+.cofee-main-ohf-d345 {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+.cofee-inner-efj-d345 {
+    width: 100%;
+}
+.cofee-all-shop-iew-d345 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+.cofee-image-0iek-d345 {
+    position: relative;
+    flex: 0 0 auto;
+    width: 340px;
+    margin-bottom: 18px;
+}
+.left-side-image-d345 {
+    width: 100%;
+}
+.left-side-image-d345 img {
+    width: 320px;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+    border: 5px solid black;
+}
+.left-side-last-text-d345 {
+    position: absolute;
+    bottom: 24px;
+    left: 58px;
+    right: -20px;
+    background: #fff;
+    border: 5px solid black;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    width: 80%;
+}
+.heart-icon-d345 {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #555;
+    font-size: 13px;
+}
+.left-side-last-text-d345 p {
+    font-size: 13.5px;
+    color: #222;
+    line-height: 1.5;
+    font-style: italic;
+}
+.righht-side-text-buttons-d345 {
+    flex: 0 0 auto;
+    width: 420px;
+}
+.cofee-subheading-orange-d345 {
+    font-size: 14px;
+    color: #c87941;
+    font-style: italic;
+    margin-bottom: 14px;
+}
+.cofee-heading-black-ewoj-d345 {
+    margin-bottom: 18px;
+}
+.cofee-heading-black-ewoj-d345 h2 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.25;
+}
+.cofee-para-d345 {
+    margin-bottom: 22px;
+}
+.cofee-para-d345 p {
+    font-size: 14.5px;
+    color: #555;
+    line-height: 1.7;
+}
+.cofee-coffee-types-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+.type-link-d345 {
+    font-size: 14px;
+    color: #c87941;
+    font-weight: 500;
+    cursor: pointer;
+}
+.dot-d345 {
+    color: #888;
+    font-size: 16px;
+}
+.type-plain-d345 {
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+}
+.cofee-buttons-d345 {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+.btn-aboutus-d345 {
+    background: #c87941;
+    color: #fff;
+    border: none;
+    padding: 13px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-seemore-d345 {
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+@media (max-width: 1024px) {
+    .cofee-main-ohf-d345 {
+        padding: 50px 20px;
+    }
+    .cofee-all-shop-iew-d345 {
+        gap: 40px;
+    }
+    .cofee-image-0iek-d345 {
+        width: 290px;
+    }
+    .left-side-image-d345 img {
+        width: 270px;
+        height: 310px;
+    }
+    .left-side-last-text-d345 {
+        left: 20px;
+        right: -10px;
+        padding: 12px 14px;
+    }
+    .righht-side-text-buttons-d345 {
+        width: 360px;
+    }
+    .cofee-heading-black-ewoj-d345 h2 {
+        font-size: 28px;
+    }
+    .cofee-para-d345 p {
+        font-size: 13.5px;
+    }
+}
+@media (max-width: 768px) {
+    .cofee-main-ohf-d345 {
+        padding: 40px 20px;
+    }
+    .cofee-all-shop-iew-d345 {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        text-align: center;
+    }
+    .cofee-image-0iek-d345 {
+        width: 100%;
+        max-width: 420px;
+        margin-bottom: 18px;
+    }
+    .left-side-image-d345 img {
+        width: 100%;
+        height: 320px;
+    }
+    .left-side-last-text-d345 {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin-top: 14px;
+        border-radius: 6px;
+        justify-content: center;
+    }
+    .righht-side-text-buttons-d345 {
+        width: 100%;
+        max-width: 420px;
+    }
+    .cofee-heading-black-ewoj-d345 h2 {
+        font-size: 28px;
+    }
+    .cofee-coffee-types-d345 {
+        justify-content: center;
+    }
+    .cofee-buttons-d345 {
+        justify-content: center;
+    }
+}
+@media (max-width: 480px) {
+    .cofee-main-ohf-d345 {
+        padding: 30px 16px;
+    }
+    .left-side-image-d345 img {
+        height: 260px;
+    }
+    .left-side-last-text-d345 {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    .left-side-last-text-d345 p {
+        font-size: 12.5px;
+    }
+    .heart-icon-d345 {
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+    }
+    .cofee-heading-black-ewoj-d345 h2 {
+        font-size: 24px;
+    }
+    .btn-aboutus-d345 {
+        padding: 11px 24px;
+        font-size: 13px;
+    }
+    .btn-seemore-d345 {
+        font-size: 13px;
+    }
+    .cofee-buttons-d345 {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+</style>
+
+<div class="cofee-main-ohf-d345">
+    <div class="cofee-inner-efj-d345">
+        <div class="cofee-all-shop-iew-d345">
+            <div class="cofee-image-0iek-d345">
+                <div class="left-side-image-d345">
+                    <img src="aboutImg.jpg" alt="Coffee Machine">
+                </div>
+                <div class="left-side-last-text-d345">
+                    <div class="heart-icon-d345">♡</div>
+                    <p>"I really love the Cappuccino. The coffee was very smooth."</p>
+                </div>
+            </div>
+            <div class="righht-side-text-buttons-d345">
+                <div class="cofee-subheading-orange-d345">Our Coffee Shop</div>
+                <div class="cofee-heading-black-ewoj-d345">
+                    <h2>We Combine Classics and Modernity</h2>
+                </div>
+                <div class="cofee-para-d345">
+                    <p>We appreciate your trust greatly. Our clients choose us and our products because they know we are the best in quality and taste.</p>
+                </div>
+                <div class="cofee-coffee-types-d345">
+                    <span class="type-link-d345">Cappuccino</span>
+                    <span class="dot-d345">•</span>
+                    <span class="type-plain-d345">Latte</span>
+                    <span class="dot-d345">•</span>
+                    <span class="type-plain-d345">Arabica</span>
+                </div>
+                <div class="cofee-buttons-d345">
+                    <button class="btn-aboutus-d345" onclick="window.location.href='about.html'">About Us</button>
+                    <button class="btn-seemore-d345" onclick="window.location.href='menu.html'">SEE MORE →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== MENU SECTION ========== -->
+<style>
+.menu-main-wrp-d456 {
+    width: 100%;
+    background: #1e1e1e;
+    padding: 60px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.menu-inner-wrp-d456 {
+    width: 100%;
+    padding: 0 20px;
+}
+.menu-heading-area-d456 {
+    text-align: center;
+    margin-bottom: 48px;
+}
+.menu-sub-orange-d456 {
+    font-size: 15px;
+    color: #c87941;
+    font-style: italic;
+    margin-bottom: 10px;
+    display: block;
+}
+.menu-heading-area-d456 h2 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+.menu-heading-area-d456 p {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+}
+.menu-content-row-d456 {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+.menu-list-col-d456 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.menu-item-d456 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #fff;
+    padding: 14px 18px;
+    border-bottom: 1px solid #eee;
+}
+.menu-item-d456:first-child {
+    border-radius: 2px 2px 0 0;
+}
+.menu-item-d456:last-child {
+    border-radius: 0 0 2px 2px;
+    border-bottom: none;
+}
+.menu-item-img-d456 {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.menu-item-info-d456 {
+    flex: 1;
+}
+.menu-item-info-d456 h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 5px;
+}
+.menu-item-info-d456 p {
+    font-size: 12.5px;
+    color: #666;
+    line-height: 1.5;
+}
+.menu-item-divider-d456 {
+    width: 1px;
+    height: 52px;
+    background: #ddd;
+    flex-shrink: 0;
+    margin: 0 10px;
+}
+.menu-item-price-d456 {
+    text-align: right;
+    flex-shrink: 0;
+}
+.price-new-d456 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+    display: block;
+}
+.price-old-d456 {
+    font-size: 13px;
+    color: #aaa;
+    text-decoration: line-through;
+    display: block;
+}
+.menu-right-col-d456 {
+    flex: 0 0 260px;
+}
+.cat-time-box-d456 {
+    background: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.cat-time-header-d456 {
+    background: #c87941;
+    min-height: 79px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cat-time-header-d456 h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+}
+.cat-time-row-d456 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.cat-time-row-d456:last-child {
+    border-bottom: none;
+}
+.cat-time-row-d456 span {
+    font-size: 13.5px;
+    color: #444;
+}
+.time-val-d456 {
+    color: #555;
+    font-size: 13px;
+}
+.closed-d456 {
+    color: #c87941;
+    font-weight: 600;
+    font-size: 13px;
+}
+@media (max-width: 1024px) {
+    .menu-inner-wrp-d456 {
+        padding: 0 30px;
+    }
+    .menu-heading-area-d456 h2 {
+        font-size: 28px;
+    }
+    .menu-content-row-d456 {
+        gap: 24px;
+    }
+    .menu-right-col-d456 {
+        flex: 0 0 230px;
+    }
+    .menu-item-img-d456 {
+        width: 56px;
+        height: 56px;
+    }
+}
+@media (max-width: 768px) {
+    .menu-main-wrp-d456 {
+        padding: 40px 0;
+    }
+    .menu-inner-wrp-d456 {
+        padding: 0 20px;
+    }
+    .menu-content-row-d456 {
+        flex-direction: column;
+        gap: 28px;
+    }
+    .menu-right-col-d456 {
+        flex: none;
+        width: 100%;
+    }
+    .menu-heading-area-d456 h2 {
+        font-size: 26px;
+    }
+}
+@media (max-width: 480px) {
+    .menu-main-wrp-d456 {
+        padding: 30px 0;
+    }
+    .menu-inner-wrp-d456 {
+        padding: 0 14px;
+    }
+    .menu-heading-area-d456 h2 {
+        font-size: 22px;
+    }
+    .menu-item-d456 {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+    .menu-item-img-d456 {
+        width: 50px;
+        height: 50px;
+    }
+    .menu-item-info-d456 h4 {
+        font-size: 13.5px;
+    }
+    .price-new-d456 {
+        font-size: 14px;
+    }
+}
+</style>
+
+<section class="menu-main-wrp-d456">
+    <div class="menu-inner-wrp-d456">
+        <div class="menu-heading-area-d456">
+            <span class="menu-sub-orange-d456">Our Menu</span>
+            <h2>Our Popular Menu</h2>
+            <p>Carefully crafted coffee and drinks designed to give you the best experience every single time.</p>
+        </div>
+        <div class="menu-content-row-d456">
+            <div class="menu-list-col-d456">
+                <div class="menu-item-d456">
+                    <img class="menu-item-img-d456" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&h=120&fit=crop" alt="Americano">
+                    <div class="menu-item-info-d456">
+                        <h4>Americano Roasted Coffee</h4>
+                        <p>A bold and smooth espresso diluted with hot water for a rich, full-bodied taste.</p>
+                    </div>
+                    <div class="menu-item-divider-d456"></div>
+                    <div class="menu-item-price-d456">
+                        <span class="price-new-d456">$18.99</span>
+                        <span class="price-old-d456">$20.66</span>
+                    </div>
+                </div>
+                <div class="menu-item-d456">
+                    <img class="menu-item-img-d456" src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=120&h=120&fit=crop" alt="Brazilian">
+                    <div class="menu-item-info-d456">
+                        <h4>Brazilian Roasted Coffee</h4>
+                        <p>Premium Brazilian beans roasted to perfection with a nutty, chocolatey flavor.</p>
+                    </div>
+                    <div class="menu-item-divider-d456"></div>
+                    <div class="menu-item-price-d456">
+                        <span class="price-new-d456">$14.99</span>
+                        <span class="price-old-d456">$16.00</span>
+                    </div>
+                </div>
+                <div class="menu-item-d456">
+                    <img class="menu-item-img-d456" src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=120&h=120&fit=crop" alt="Mericano">
+                    <div class="menu-item-info-d456">
+                        <h4>Mericano Cold Coffee</h4>
+                        <p>Chilled espresso served over ice with a refreshing smooth finish perfect for summer.</p>
+                    </div>
+                    <div class="menu-item-divider-d456"></div>
+                    <div class="menu-item-price-d456">
+                        <span class="price-new-d456">$15.99</span>
+                        <span class="price-old-d456">$20.99</span>
+                    </div>
+                </div>
+                <div class="menu-item-d456">
+                    <img class="menu-item-img-d456" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=120&h=120&fit=crop" alt="Mexican">
+                    <div class="menu-item-info-d456">
+                        <h4>Mexican Cold Coffee</h4>
+                        <p>A spiced cold brew blend with a hint of cinnamon and vanilla for a unique taste.</p>
+                    </div>
+                    <div class="menu-item-divider-d456"></div>
+                    <div class="menu-item-price-d456">
+                        <span class="price-new-d456">$12.99</span>
+                        <span class="price-old-d456">$18.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-right-col-d456">
+                <div class="cat-time-box-d456">
+                    <div class="cat-time-header-d456">
+                        <h3>Opening Hours</h3>
+                    </div>
+                    <div class="cat-time-row-d456"><span>Sunday</span><span class="closed-d456">Closed</span></div>
+                    <div class="cat-time-row-d456"><span>Monday</span><span class="time-val-d456">7:00am - 3:00pm</span></div>
+                    <div class="cat-time-row-d456"><span>Tuesday</span><span class="time-val-d456">7:00am - 3:00pm</span></div>
+                    <div class="cat-time-row-d456"><span>Wednesday</span><span class="time-val-d456">7:00am - 3:00pm</span></div>
+                    <div class="cat-time-row-d456"><span>Thursday</span><span class="time-val-d456">7:00am - 3:00pm</span></div>
+                    <div class="cat-time-row-d456"><span>Friday</span><span class="time-val-d456">7:00am - 3:00pm</span></div>
+                    <div class="cat-time-row-d456"><span>Saturday</span><span class="time-val-d456">9:00am - 2:00pm</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== BRANDS SECTION ========== -->
+<style>
+.brands-main-brnd-d345 {
+    width: 100%;
+    background-color: #ffffff;
+    max-width: 1300px;
+    margin: 0px auto;
+}
+.brands-inner-brnd-d345 {
+    width: 100%;
+}
+.brands-heading-brnd-d345 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.brands-heading-brnd-d345 p {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #e08a1e;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0px;
+}
+.brands-grid-brnd-d345 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+.brands-single-brnd-d345 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.55;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+.brands-single-brnd-d345:hover {
+    opacity: 1;
+}
+.brands-single-brnd-d345 img {
+    width: 100%;
+    max-width: 140px;
+    height: 110px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+.brands-single-brnd-d345:hover img {
+    filter: grayscale(0%);
+}
+@media (max-width: 1024px) {
+    .brands-inner-brnd-d345 {
+        padding: 0 30px;
+    }
+    .brands-grid-brnd-d345 {
+        gap: 14px;
+    }
+    .brands-single-brnd-d345 img {
+        max-width: 110px;
+        height: 90px;
+    }
+}
+@media (max-width: 768px) {
+    .brands-inner-brnd-d345 {
+        padding: 0 20px;
+    }
+    .brands-grid-brnd-d345 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .brands-single-brnd-d345 img {
+        max-width: 120px;
+        height: 100px;
+    }
+}
+@media (max-width: 480px) {
+    .brands-inner-brnd-d345 {
+        padding: 0 16px;
+    }
+    .brands-grid-brnd-d345 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-bottom: 30px;
+    }
+    .brands-single-brnd-d345 img {
+        max-width: 110px;
+        height: 90px;
+    }
+}
+</style>
+
+<div class="brands-main-brnd-d345">
+    <div class="brands-inner-brnd-d345">
+        <div class="brands-heading-brnd-d345">
+            <p>Our Trusted Brands</p>
+        </div>
+        <div class="brands-grid-brnd-d345">
+            <div class="brands-single-brnd-d345"><img src="brandImg1.png" alt="Brand 1"></div>
+            <div class="brands-single-brnd-d345"><img src="brandImg2.png" alt="Brand 2"></div>
+            <div class="brands-single-brnd-d345"><img src="brandImg3.png" alt="Brand 3"></div>
+            <div class="brands-single-brnd-d345"><img src="brandImg4.png" alt="Brand 4"></div>
+            <div class="brands-single-brnd-d345"><img src="brandImg5.png" alt="Brand 5"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== REVIEW SLIDER ========== -->
+<style>
+.review-main-rvw-d345 {
+    width: 100%;
+    background-color: #f2f2f2;
+    max-width: 1300px;
+    margin: 0px auto;
+}
+.review-inner-rvw-d345 {
+    width: 100%;
+}
+.review-top-rvw-d345 {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.review-top-rvw-d345 p {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #e08a1e;
+    font-style: italic;
+    margin: 0px 0px 10px 0px;
+}
+.review-top-rvw-d345 h2 {
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #222222;
+    margin: 0px 0px 20px 0px;
+}
+.review-top-rvw-d345 span {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #888888;
+    line-height: 1.8;
+    display: block;
+    max-width: 560px;
+    margin: 0px auto;
+}
+.review-slider-wrap-rvw-d345 {
+    width: 100%;
+    position: relative;
+    margin-bottom: 60px;
+}
+.review-slider-track-rvw-d345 {
+    width: 100%;
+    overflow: hidden;
+}
+.review-slides-rvw-d345 {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.review-single-rvw-d345 {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0px 120px;
+}
+.review-img-rvw-d345 {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+.review-img-rvw-d345 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.review-text-rvw-d345 {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.9;
+    max-width: 580px;
+    margin: 0px 0px 18px 0px;
+}
+.review-quote-rvw-d345 {
+    margin-bottom: 16px;
+}
+.review-quote-rvw-d345 svg {
+    width: 32px;
+    height: 32px;
+    fill: #e08a1e;
+}
+.review-name-rvw-d345 {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #222222;
+    margin: 0px 0px 6px 0px;
+}
+.review-role-rvw-d345 {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #888888;
+    margin: 0px;
+}
+.review-arrow-rvw-d345 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+    z-index: 10;
+}
+.review-arrow-rvw-d345:hover {
+    background: #e08a1e;
+    border: 1px solid #e08a1e;
+}
+.review-arrow-rvw-d345:hover svg {
+    stroke: #ffffff;
+}
+.review-arrow-rvw-d345 svg {
+    width: 18px;
+    height: 18px;
+    stroke: #555555;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+}
+.review-prev-rvw-d345 {
+    left: 20px;
+}
+.review-next-rvw-d345 {
+    right: 20px;
+}
+@media (max-width: 1024px) {
+    .review-single-rvw-d345 {
+        padding: 0px 80px;
+    }
+    .review-top-rvw-d345 h2 {
+        font-size: 28px;
+    }
+    .review-text-rvw-d345 {
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    .review-single-rvw-d345 {
+        padding: 0px 60px;
+    }
+    .review-top-rvw-d345 h2 {
+        font-size: 26px;
+    }
+    .review-img-rvw-d345 {
+        width: 90px;
+        height: 90px;
+    }
+    .review-arrow-rvw-d345 {
+        width: 38px;
+        height: 38px;
+    }
+}
+@media (max-width: 480px) {
+    .review-single-rvw-d345 {
+        padding: 0px 50px;
+    }
+    .review-top-rvw-d345 h2 {
+        font-size: 22px;
+    }
+    .review-text-rvw-d345 {
+        font-size: 13px;
+    }
+    .review-img-rvw-d345 {
+        width: 80px;
+        height: 80px;
+    }
+    .review-arrow-rvw-d345 {
+        width: 34px;
+        height: 34px;
+    }
+    .review-arrow-rvw-d345 svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+</style>
+
+<div class="review-main-rvw-d345">
+    <div class="review-inner-rvw-d345">
+        <div class="review-top-rvw-d345">
+            <p>Reviews</p>
+            <h2>What Our Clients Say</h2>
+            <span>Here are some honest reviews from our valued customers who enjoy our coffee and services every day.</span>
+        </div>
+        <div class="review-slider-wrap-rvw-d345">
+            <button class="review-arrow-rvw-d345 review-prev-rvw-d345" id="review-prev-rvw-d345">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="review-slider-track-rvw-d345">
+                <div class="review-slides-rvw-d345" id="review-slides-rvw-d345">
+                    <div class="review-single-rvw-d345">
+                        <div class="review-img-rvw-d345"><img src="profileImg1.jpg" alt="Marnie Rotter"></div>
+                        <p class="review-text-rvw-d345">Your coffee hits the spot every time. Thank you for the experience of pure, delicious coffee masterfully roasted! I will never purchase any other and I will spread the word!</p>
+                        <div class="review-quote-rvw-d345">
+                            <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                        </div>
+                        <p class="review-name-rvw-d345">Marnie Rotter</p>
+                        <p class="review-role-rvw-d345">App Developer</p>
+                    </div>
+                    <div class="review-single-rvw-d345">
+                        <div class="review-img-rvw-d345"><img src="profileImg2.jpg" alt="James Wilson"></div>
+                        <p class="review-text-rvw-d345">Absolutely love this coffee! The aroma is incredible and the taste is smooth and rich. It has become my daily morning ritual and I cannot imagine starting my day without it!</p>
+                        <div class="review-quote-rvw-d345">
+                            <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                        </div>
+                        <p class="review-name-rvw-d345">James Wilson</p>
+                        <p class="review-role-rvw-d345">Web Designer</p>
+                    </div>
+                    <div class="review-single-rvw-d345">
+                        <div class="review-img-rvw-d345"><img src="profileImg3.jpg" alt="Sarah Johnson"></div>
+                        <p class="review-text-rvw-d345">Best coffee I have ever tasted! The beans are perfectly roasted and the flavor is unmatched. I recommend this to all my friends and family without any hesitation!</p>
+                        <div class="review-quote-rvw-d345">
+                            <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                        </div>
+                        <p class="review-name-rvw-d345">Sarah Johnson</p>
+                        <p class="review-role-rvw-d345">Business Owner</p>
+                    </div>
+                </div>
+            </div>
+            <button class="review-arrow-rvw-d345 review-next-rvw-d345" id="review-next-rvw-d345">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ========== SHARED FOOTER STYLES ========== -->
+<style>
+.footer-main-ftr-d345 {
+    width: 100%;
+    background-color: #ffffff;
+    max-width: 1300px;
+    margin: 0px auto;
+}
+.footer-inner-ftr-d345 {
+    width: 100%;
+}
+.footer-content-ftr-d345 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.footer-logo-ftr-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.footer-logo-ftr-d345 svg {
+    width: 28px;
+    height: 28px;
+    stroke: #888888;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.footer-logo-ftr-d345 span {
+    font-family: sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #444444;
+}
+.footer-desc-ftr-d345 {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #888888;
+    line-height: 1.8;
+    max-width: 480px;
+    margin: 0px 0px 30px 0px;
+}
+.footer-form-ftr-d345 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.footer-form-ftr-d345 input {
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #555555;
+    background: transparent;
+    line-height: 46px;
+    text-indent: 20px;
+    width: 240px;
+}
+.footer-form-ftr-d345 input::placeholder {
+    color: #aaaaaa;
+}
+.footer-form-ftr-d345 button {
+    background-color: #c8845a;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    line-height: 48px;
+    width: 120px;
+    text-align: center;
+    border-radius: 0px 30px 30px 0px;
+    transition: background 0.2s;
+}
+.footer-form-ftr-d345 button:hover {
+    background-color: #b5723f;
+}
+.footer-social-ftr-d345 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.footer-social-ftr-d345 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+.footer-social-ftr-d345 a:hover {
+    opacity: 0.6;
+}
+.footer-social-ftr-d345 a svg {
+    width: 20px;
+    height: 20px;
+    stroke: #888888;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.footer-social-ftr-d345 a .fill-icon-ftr-d345 {
+    fill: #888888;
+    stroke: none;
+}
+.footer-bottom-ftr-d345 {
+    border-top: 1px solid #eeeeee;
+    text-align: center;
+}
+.footer-bottom-ftr-d345 p {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.footer2-main-ftr2-d345 {
+    width: 100%;
+    background-color: #1e1e1e;
+    max-width: 1300px;
+    margin: 0px auto;
+}
+.footer2-inner-ftr2-d345 {
+    width: 100%;
+    padding: 20px 20px;
+}
+.footer2-flex-ftr2-d345 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.footer2-col-ftr2-d345 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer2-logo-ftr2-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.footer2-logo-ftr2-d345 svg {
+    width: 22px;
+    height: 22px;
+    stroke: #aaaaaa;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.footer2-logo-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.footer2-desc-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.8;
+    max-width: 220px;
+    margin: 0px;
+}
+.footer2-address-ftr2-d345 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 6px;
+}
+.footer2-address-ftr2-d345 svg {
+    width: 16px;
+    height: 16px;
+    stroke: #888888;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.footer2-address-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.7;
+}
+.footer2-col-title-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0px 0px 6px 0px;
+}
+.footer2-links-ftr2-d345 {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer2-links-ftr2-d345 li a {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer2-links-ftr2-d345 li a:hover {
+    color: #e08a1e;
+}
+.footer2-bottom-ftr2-d345 {
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+.footer2-bottom-ftr2-d345 p {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #666666;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+@media (max-width: 1024px) {
+    .footer-inner-ftr-d345 {
+        padding: 0 40px;
+    }
+    .footer-desc-ftr-d345 {
+        max-width: 420px;
+        font-size: 14px;
+    }
+    .footer2-inner-ftr2-d345 {
+        padding: 14px 14px;
+    }
+    .footer2-flex-ftr2-d345 {
+        gap: 24px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 180px;
+    }
+}
+@media (max-width: 768px) {
+    .footer-inner-ftr-d345 {
+        padding: 0 30px;
+    }
+    .footer-content-ftr-d345 {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .footer-form-ftr-d345 input {
+        width: 180px;
+    }
+    .footer2-inner-ftr2-d345 {
+        padding: 20px 20px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .footer-inner-ftr-d345 {
+        padding: 0 20px;
+    }
+    .footer-content-ftr-d345 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .footer-form-ftr-d345 {
+        width: 100%;
+    }
+    .footer-form-ftr-d345 input {
+        width: 100%;
+        flex: 1;
+    }
+    .footer-form-ftr-d345 button {
+        width: 110px;
+        font-size: 14px;
+    }
+    .footer2-inner-ftr2-d345 {
+        padding: 0px 20px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 30px;
+        margin-bottom: 24px;
+    }
+    .footer2-col-title-ftr2-d345 {
+        font-size: 15px;
+    }
+    .footer2-links-ftr2-d345 li a {
+        font-size: 13px;
+    }
+}
+</style>
+
+<div class="footer-main-ftr-d345">
+    <div class="footer-inner-ftr-d345">
+        <div class="footer-content-ftr-d345">
+            <div class="footer-logo-ftr-d345">
+                <svg viewBox="0 0 24 24"><path d="M6 2h12v4a6 6 0 01-12 0V2z"/><rect x="4" y="18" width="16" height="2" rx="1"/><path d="M18 4h2a2 2 0 010 4h-2"/></svg>
+                <span>Coffee.</span>
+            </div>
+            <p class="footer-desc-ftr-d345">This is the perfect place to find a nice and cozy spot to sip some coffee. You will find the Java Jungle, Coffee Bean and more shops right here.</p>
+            <div class="footer-form-ftr-d345">
+                <input type="email" placeholder="email@example.com">
+                <button type="submit">Subscribe</button>
+            </div>
+            <div class="footer-social-ftr-d345">
+                <a href="#"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" class="fill-icon-ftr-d345"/></svg></a>
+                <a href="#"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" class="fill-icon-ftr-d345"/></svg></a>
+                <a href="#"><svg viewBox="0 0 24 24" stroke="#888888" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#888888" stroke="none"/></svg></a>
+                <a href="#"><svg viewBox="0 0 24 24" stroke="#888888" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a>
+                <a href="#"><svg viewBox="0 0 24 24" stroke="#888888" fill="none"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#888888" stroke="none"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-bottom-ftr-d345">
+            <p>Copyright &copy; 2024 Coffee. All Rights Reserved.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer2-main-ftr2-d345">
+    <div class="footer2-inner-ftr2-d345">
+        <div class="footer2-flex-ftr2-d345">
+            <div class="footer2-col-ftr2-d345">
+                <div class="footer2-logo-ftr2-d345">
+                    <svg viewBox="0 0 24 24"><path d="M6 2h12v4a6 6 0 01-12 0V2z"/><rect x="4" y="18" width="16" height="2" rx="1"/><path d="M18 4h2a2 2 0 010 4h-2"/></svg>
+                    <span>Coffee.</span>
+                </div>
+                <p class="footer2-desc-ftr2-d345">Coffee is a cafe that serves many variants of coffee and other dishes in a very comfortable place.</p>
+                <div class="footer2-address-ftr2-d345">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    <span>USA California, 65 South Fifth St. Sicklerville, NJ 08081</span>
+                </div>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Facility</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="private Room.html">Private Room</a></li>
+                    <li><a href="Meeting Room.html">Meeting Room</a></li>
+                    <li><a href="Event Room.html">Event Room</a></li>
+                    <li><a href="Creative Studio.html">Creative Studio</a></li>
+                    <li><a href="Custom Room.html">Custom Room</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Product</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="coffee.html">Coffee</a></li>
+                    <li><a href="beverages.html">Beverages</a></li>
+                    <li><a href="dishes.html">Dishes</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Support</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="about-1.html">About Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="Private Policy.html">Privacy Policy</a></li>
+                    <li><a href="Help Us.html">Help Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer2-bottom-ftr2-d345">
+            <p>&copy; 2024 Coffee. All Rights Reserved.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ========== ALL JS ========== -->
+<script>
+    // ===== ENTRY POPUP — ALLOW / BLOCK =====
+    var popupOverlay = document.getElementById('popup-overlay-pvr-d345');
+    var popupAllow = document.getElementById('popup-allow-pvr-d345');
+    var popupDeny = document.getElementById('popup-deny-pvr-d345');
+    var popupMainContent = document.getElementById('popup-main-content-pvr-d345');
+    var popupDenied = document.getElementById('popup-denied-pvr-d345');
+
+    popupAllow.addEventListener('click', function() {
+        popupOverlay.style.display = 'none';
+    });
+
+    popupDeny.addEventListener('click', function() {
+        popupMainContent.style.display = 'none';
+        popupDenied.style.display = 'flex';
+    });
+
+    // ===== SCROLL TO TOP =====
+    var scrollTopBtn = document.getElementById('scroll-top-stt-d345');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add('show-stt-d345');
+        } else {
+            scrollTopBtn.classList.remove('show-stt-d345');
+        }
+    });
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== HEADER HAMBURGER =====
+    var hamburger = document.getElementById('hamburger-hdr-d345');
+    var headerNav = document.getElementById('header-nav-hdr-d345');
+    hamburger.addEventListener('click', function() {
+        headerNav.classList.toggle('open-hdr-d345');
+    });
+
+    // ===== HERO SLIDER =====
+    var track = document.getElementById('slider-track-sldr-d345');
+    var slides = document.querySelectorAll('.slider-slide-sldr-d345');
+    var prevBtn = document.getElementById('slider-prev-sldr-d345');
+    var nextBtn = document.getElementById('slider-next-sldr-d345');
+    var current = 0;
+    var total = slides.length;
+    function goToSlide(index) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        current = index;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    }
+    prevBtn.addEventListener('click', function() { goToSlide(current - 1); });
+    nextBtn.addEventListener('click', function() { goToSlide(current + 1); });
+    setInterval(function() { goToSlide(current + 1); }, 4000);
+
+    // ===== REVIEW SLIDER =====
+    var reviewSlides = document.getElementById('review-slides-rvw-d345');
+    var reviewPrev = document.getElementById('review-prev-rvw-d345');
+    var reviewNext = document.getElementById('review-next-rvw-d345');
+    var reviewCurrent = 0;
+    var reviewTotal = document.querySelectorAll('.review-single-rvw-d345').length;
+    function reviewGoTo(index) {
+        if (index < 0) index = reviewTotal - 1;
+        if (index >= reviewTotal) index = 0;
+        reviewCurrent = index;
+        reviewSlides.style.transform = 'translateX(-' + (reviewCurrent * 100) + '%)';
+    }
+    reviewPrev.addEventListener('click', function() { reviewGoTo(reviewCurrent - 1); });
+    reviewNext.addEventListener('click', function() { reviewGoTo(reviewCurrent + 1); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* HEADER KI FIX CODING */
+        .mj-header-fixed {
+            width: 100%;
+            position: fixed; /* Scroll ke sath sath chalay ga */
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95); /* Light white background with slight transparency */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Halka sa shadow taake slider se alag dikhe */
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+
+        /* Logo aur Menu ka color fix */
+        .mj-logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333; /* Dark color taake white background par nazar aaye */
+            text-decoration: none;
+        }
+
+        .mj-logo-text span {
+            color: #e08a1e;
+        }
+
+        .mj-nav-list {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .mj-nav-list li a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .mj-nav-list li a:hover {
+            color: #e08a1e;
+        }
+
+        /* Phone Number Styling */
+        .mj-contact-info {
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Page Content Spacing (Taake header content ko chhupaye na) */
+        body {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="mj-header-fixed">
+        <a href="#" class="mj-logo-text">Coffee<span>.</span></a>
+        
+        <nav>
+            <ul class="mj-nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="about-1.html">About</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Review.html">Review</a></li>
+            </ul>
+        </nav>
+
+        <div class="mj-contact-info">
+            <i class="fa fa-phone"></i> 0022-0303-2030
+        </div>
+    </header>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Event Room | Celebrations</title>
+    <style>
+        /* 1. Reset & Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: #fffdfa; color: #444; }
+
+        .ev-page-container { max-width: 1200px; margin: 0 auto; padding: 70px 20px; }
+
+        /* 2. Celebration Header */
+        .ev-page-header { text-align: center; margin-bottom: 60px; }
+        .ev-page-header h1 { font-size: 42px; color: #b8860b; text-transform: uppercase; margin-bottom: 15px; }
+        .ev-page-header p { font-size: 18px; color: #777; font-style: italic; }
+
+        /* 3. 6-Box Grid (Event Features) */
+        .ev-page-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            margin-bottom: 80px;
+        }
+
+        .ev-page-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.1);
+            transition: 0.4s ease;
+            border: 1px solid #f3e5ab;
+            text-align: center;
+        }
+
+        .ev-page-card:hover { transform: translateY(-12px); box-shadow: 0 15px 40px rgba(184, 134, 11, 0.2); }
+        .ev-page-card img { width: 100%; height: 230px; object-fit: cover; }
+
+        .ev-page-info { padding: 25px; }
+        .ev-page-info h3 { font-size: 22px; color: #b8860b; margin-bottom: 12px; }
+        .ev-page-info p { font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+
+        .ev-page-btn { 
+            background: #b8860b; color: #fff; padding: 10px 25px; 
+            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px;
+            display: inline-block; transition: 0.3s;
+        }
+        .ev-page-btn:hover { background: #333; }
+
+        /* 4. Event Gallery Section */
+        .ev-gallery-title { text-align: center; margin-bottom: 40px; font-size: 28px; color: #333; }
+        .ev-gallery-row { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .ev-gallery-img { width: 300px; height: 200px; border-radius: 10px; object-fit: cover; filter: grayscale(30%); transition: 0.3s; }
+        .ev-gallery-img:hover { filter: grayscale(0%); transform: scale(1.05); }
+
+        /* Responsive */
+        @media (max-width: 992px) { .ev-page-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { 
+            .ev-page-grid { grid-template-columns: 1fr; }
+            .ev-page-header h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ev-page-container">
+        
+        <div class="ev-page-header">
+            <h1>Grand Event Room</h1>
+            <p>Make your special moments unforgettable with us.</p>
+        </div>
+
+        <div class="ev-page-grid">
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600" alt="Birthday">
+                <div class="ev-page-info">
+                    <h3>Birthday Parties</h3>
+                    <p>Hamari team gubbaron aur lights se room ko party-ready bana degi.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600" alt="Engagement">
+                <div class="ev-page-info">
+                    <h3>Special Dinners</h3>
+                    <p>Family gatherings aur mangni ki rasam ke liye private aur classy space.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" alt="Music">
+                <div class="ev-page-info">
+                    <h3>Music & DJ</h3>
+                    <p>High-quality sound system aur dance floor ki sahulet available hai.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600" alt="Catering">
+                <div class="ev-page-info">
+                    <h3>Premium Catering</h3>
+                    <p>Custom menu choices—Pakistani se lekar Chinese tak sab hazir hai.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600" alt="Decor">
+                <div class="ev-page-info">
+                    <h3>Theme Decoration</h3>
+                    <p>Aapki marzi ka theme aur floral decoration humari zimmedari.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=600" alt="Photography">
+                <div class="ev-page-info">
+                    <h3>Photography</h3>
+                    <p>Aapke event ko hamesha ke liye yaadgaar banane ke liye professional shoot.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="ev-gallery-title">Memories From Past Events</h2>
+        <div class="ev-gallery-row">
+            <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?w=400" class="ev-gallery-img">
+            <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=400" class="ev-gallery-img">
+            <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400" class="ev-gallery-img">
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.footer2-main-ftr2-d345 {
+    width: 100%;
+    background-color: #1e1e1e;
+    max-width: 1300px;
+    margin: 0px auto;
+    overflow-x: hidden;
+}
+.footer2-inner-ftr2-d345 {
+    width: 100%;
+     padding: 20px 20px;
+}
+.footer2-flex-ftr2-d345 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.footer2-col-ftr2-d345 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer2-logo-ftr2-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.footer2-logo-ftr2-d345 svg {
+    width: 22px;
+    height: 22px;
+    stroke: #aaaaaa;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.footer2-logo-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.footer2-desc-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.8;
+    max-width: 220px;
+    margin: 0px;
+}
+.footer2-address-ftr2-d345 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 6px;
+}
+.footer2-address-ftr2-d345 svg {
+    width: 16px;
+    height: 16px;
+    stroke: #888888;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.footer2-address-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.7;
+}
+.footer2-col-title-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0px 0px 6px 0px;
+}
+.footer2-links-ftr2-d345 {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer2-links-ftr2-d345 li a {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer2-links-ftr2-d345 li a:hover {
+    color: #e08a1e;
+}
+.footer2-bottom-ftr2-d345 {
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+.footer2-bottom-ftr2-d345 p {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #666666;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+
+/* ========== 1024px ========== */
+@media (max-width: 1024px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 24px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 180px;
+    }
+}
+
+
+/* ========== 768px ========== */
+@media (max-width: 768px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 100%;
+    }
+}
+
+
+/* ========== 480px ========== */
+@media (max-width: 480px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 30px;
+        margin-bottom: 24px;
+    }
+    .footer2-col-title-ftr2-d345 {
+        font-size: 15px;
+    }
+    .footer2-links-ftr2-d345 li a {
+        font-size: 13px;
+    }
+    .footer2-logo-ftr2-d345 span {
+        font-size: 16px;
+    }
+}
+</style>
+
+<div class="footer2-main-ftr2-d345">
+    <div class="footer2-inner-ftr2-d345">
+
+        <div class="footer2-flex-ftr2-d345">
+
+            <!-- Col 1 — Logo + Desc + Address -->
+            <div class="footer2-col-ftr2-d345">
+                <div class="footer2-logo-ftr2-d345">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 2h12v4a6 6 0 01-12 0V2z"/>
+                        <rect x="4" y="18" width="16" height="2" rx="1"/>
+                        <path d="M18 4h2a2 2 0 010 4h-2"/>
+                    </svg>
+                    <span>Coffee.</span>
+                </div>
+                <p class="footer2-desc-ftr2-d345">Coffee is a cafe that serve many variant of coffee and other dishes with very comfortable place.</p>
+                <div class="footer2-address-ftr2-d345">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                    <span>USA Californa 65 South Fifth St.Sicklerville, NJ 08081</span>
+                </div>
+            </div>
+
+            <!-- Col 2 — Facility -->
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Facility</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="private Room.html">Private Room</a></li>
+                    <li><a href="Meeting Room.html">Meeting Room</a></li>
+                    <li><a href="Event Room.html">Event Room</a></li>
+                    <li><a href="Creative Studio.html">Creative Studio</a></li>
+                    <li><a href="Custom Room.html">Custom Room</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Product</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="coffee.html">Coffee</a></li>
+                    <li><a href="beverages.html">Beverages</a></li>
+                    <li><a href="dishes.html">Dishes</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Support</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="about-1.html">About Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="Private Policy.html">Privacy Policy</a></li>
+                    <li><a href="Help Us.html">Help Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer2-bottom-ftr2-d345">
+            <p>&copy; CodingLab. All rigths reserved</p>
+        </div>
+
+    </div>
+</div>

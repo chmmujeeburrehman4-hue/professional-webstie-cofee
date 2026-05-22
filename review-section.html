@@ -1,0 +1,347 @@
+<style>
+.review-main-rvw-d345 {
+    width: 100%;
+    background-color: #f2f2f2;
+}
+.review-inner-rvw-d345 {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0px auto;
+}
+.review-top-rvw-d345 {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.review-top-rvw-d345 p {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #e08a1e;
+    font-style: italic;
+    margin: 0px 0px 10px 0px;
+}
+.review-top-rvw-d345 h2 {
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #222222;
+    margin: 0px 0px 20px 0px;
+}
+.review-top-rvw-d345 span {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #888888;
+    line-height: 1.8;
+    display: block;
+    max-width: 560px;
+    margin: 0px auto;
+}
+.review-slider-wrap-rvw-d345 {
+    width: 100%;
+    position: relative;
+    margin-bottom: 60px;
+}
+.review-slider-track-rvw-d345 {
+    width: 100%;
+    overflow: hidden;
+}
+.review-slides-rvw-d345 {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.review-single-rvw-d345 {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0px 120px;
+}
+.review-img-rvw-d345 {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+.review-img-rvw-d345 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.review-text-rvw-d345 {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.9;
+    max-width: 580px;
+    margin: 0px 0px 18px 0px;
+}
+.review-quote-rvw-d345 {
+    margin-bottom: 16px;
+}
+.review-quote-rvw-d345 svg {
+    width: 32px;
+    height: 32px;
+    fill: #e08a1e;
+}
+.review-name-rvw-d345 {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #222222;
+    margin: 0px 0px 6px 0px;
+}
+.review-role-rvw-d345 {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #888888;
+    margin: 0px;
+}
+
+/* Arrows — position absolute slider ke andar */
+.review-arrow-rvw-d345 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, border 0.2s;
+    z-index: 10;
+}
+.review-arrow-rvw-d345:hover {
+    background: #e08a1e;
+    border: 1px solid #e08a1e;
+}
+.review-arrow-rvw-d345:hover svg {
+    stroke: #ffffff;
+}
+.review-arrow-rvw-d345 svg {
+    width: 18px;
+    height: 18px;
+    stroke: #555555;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+}
+.review-prev-rvw-d345 {
+    left: 21%;
+}
+.review-next-rvw-d345 {
+    right: 21%;
+}
+
+
+/* ========== 1024px ========== */
+@media (max-width: 1024px) {
+    .review-single-rvw-d345 {
+        padding: 0px 80px;
+    }
+    .review-top-rvw-d345 h2 {
+        font-size: 28px;
+    }
+    .review-text-rvw-d345 {
+        font-size: 14px;
+    }
+    .review-prev-rvw-d345 {
+        left: 10px;
+    }
+    .review-next-rvw-d345 {
+        right: 10px;
+    }
+}
+
+
+/* ========== 768px ========== */
+@media (max-width: 768px) {
+    .review-single-rvw-d345 {
+        padding: 0px 60px;
+    }
+    .review-top-rvw-d345 h2 {
+        font-size: 26px;
+    }
+    .review-top-rvw-d345 span {
+        font-size: 14px;
+        max-width: 100%;
+    }
+    .review-img-rvw-d345 {
+        width: 90px;
+        height: 90px;
+    }
+    .review-arrow-rvw-d345 {
+        width: 38px;
+        height: 38px;
+    }
+    .review-top-rvw-d345 {
+        margin-top: 50px;
+    }
+    .review-prev-rvw-d345 {
+        left: 6px;
+    }
+    .review-next-rvw-d345 {
+        right: 6px;
+    }
+}
+
+
+/* ========== 480px ========== */
+@media (max-width: 480px) {
+    .review-inner-rvw-d345 {
+        margin: 0px 0px;
+    }
+    .review-single-rvw-d345 {
+        padding: 0px 50px;
+    }
+    .review-top-rvw-d345 h2 {
+        font-size: 22px;
+    }
+    .review-top-rvw-d345 span {
+        font-size: 13px;
+    }
+    .review-text-rvw-d345 {
+        font-size: 13px;
+    }
+    .review-name-rvw-d345 {
+        font-size: 16px;
+    }
+    .review-img-rvw-d345 {
+        width: 80px;
+        height: 80px;
+    }
+    .review-arrow-rvw-d345 {
+        width: 34px;
+        height: 34px;
+    }
+    .review-arrow-rvw-d345 svg {
+        width: 14px;
+        height: 14px;
+    }
+    .review-top-rvw-d345 {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    .review-slider-wrap-rvw-d345 {
+        margin-bottom: 40px;
+    }
+    .review-prev-rvw-d345 {
+        left: 4px;
+    }
+    .review-next-rvw-d345 {
+        right: 4px;
+    }
+}
+</style>
+
+<div class="review-main-rvw-d345">
+    <div class="review-inner-rvw-d345">
+
+        <div class="review-top-rvw-d345">
+            <p>Reviews</p>
+            <h2>What Client Says</h2>
+            <span>"Some reviews that customer said about coffee services and business Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam totam repellat, labore commodi exercitationem!"</span>
+        </div>
+
+        <div class="review-slider-wrap-rvw-d345">
+
+            <!-- Left Arrow -->
+            <button class="review-arrow-rvw-d345 review-prev-rvw-d345" id="review-prev-rvw-d345">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <!-- Slider -->
+            <div class="review-slider-track-rvw-d345">
+                <div class="review-slides-rvw-d345" id="review-slides-rvw-d345">
+
+                    <!-- Slide 1 -->
+                    <div class="review-single-rvw-d345">
+                        <div class="review-img-rvw-d345">
+                            <img src="profileImg1.jpg" alt="Marnie Rotter">
+                        </div>
+                        <p class="review-text-rvw-d345">Your coffee hits the spot every time. Thank you for the experience of pure, delicious coffee masterfully roasted! I will never purchase any other and I will spread the word!</p>
+                        <div class="review-quote-rvw-d345">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                                <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                            </svg>
+                        </div>
+                        <p class="review-name-rvw-d345">Marnie Rotter</p>
+                        <p class="review-role-rvw-d345">App Developer</p>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="review-single-rvw-d345">
+                        <div class="review-img-rvw-d345">
+                            <img src="profileImg2.jpg" alt="James Wilson">
+                        </div>
+                        <p class="review-text-rvw-d345">Absolutely love this coffee! The aroma is incredible and the taste is smooth and rich. It has become my daily morning ritual and I cannot imagine starting my day without it!</p>
+                        <div class="review-quote-rvw-d345">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                                <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                            </svg>
+                        </div>
+                        <p class="review-name-rvw-d345">James Wilson</p>
+                        <p class="review-role-rvw-d345">Web Designer</p>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="review-single-rvw-d345">
+                        <div class="review-img-rvw-d345">
+                            <img src="profileImg3.jpg" alt="Sarah Johnson">
+                        </div>
+                        <p class="review-text-rvw-d345">Best coffee I have ever tasted! The beans are perfectly roasted and the flavor is unmatched. I recommend this to all my friends and family without any hesitation!</p>
+                        <div class="review-quote-rvw-d345">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                                <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                            </svg>
+                        </div>
+                        <p class="review-name-rvw-d345">Sarah Johnson</p>
+                        <p class="review-role-rvw-d345">Business Owner</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="review-arrow-rvw-d345 review-next-rvw-d345" id="review-next-rvw-d345">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var reviewSlides = document.getElementById('review-slides-rvw-d345');
+    var reviewPrev = document.getElementById('review-prev-rvw-d345');
+    var reviewNext = document.getElementById('review-next-rvw-d345');
+    var reviewCurrent = 0;
+    var reviewTotal = document.querySelectorAll('.review-single-rvw-d345').length;
+
+    function reviewGoTo(index) {
+        if (index < 0) index = reviewTotal - 1;
+        if (index >= reviewTotal) index = 0;
+        reviewCurrent = index;
+        reviewSlides.style.transform = 'translateX(-' + (reviewCurrent * 100) + '%)';
+    }
+
+    reviewPrev.addEventListener('click', function() {
+        reviewGoTo(reviewCurrent - 1);
+    });
+
+    reviewNext.addEventListener('click', function() {
+        reviewGoTo(reviewCurrent + 1);
+    });
+</script>

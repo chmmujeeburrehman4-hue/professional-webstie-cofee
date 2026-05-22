@@ -1,0 +1,150 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.brands-main-brnd-d345 {
+    width: 100%;
+    background-color: #ffffff;
+}
+.brands-inner-brnd-d345 {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0px auto;
+}
+.brands-heading-brnd-d345 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.brands-heading-brnd-d345 p {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #e08a1e;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0px;
+}
+.brands-grid-brnd-d345 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+.brands-single-brnd-d345 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.55;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+.brands-single-brnd-d345:hover {
+    opacity: 1;
+}
+.brands-single-brnd-d345 img {
+    width: 100%;
+    max-width: 140px;
+    height: 110px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+.brands-single-brnd-d345:hover img {
+    filter: grayscale(0%);
+}
+
+
+/* ========== 1024px ========== */
+@media (max-width: 1024px) {
+    .brands-inner-brnd-d345 {
+        margin: 0px 0px;
+    }
+    .brands-grid-brnd-d345 {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 14px;
+    }
+    .brands-single-brnd-d345 img {
+        max-width: 110px;
+        height: 90px;
+    }
+}
+
+
+/* ========== 768px ========== */
+@media (max-width: 768px) {
+    .brands-inner-brnd-d345 {
+        margin: 0px 0px;
+    }
+    .brands-grid-brnd-d345 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .brands-single-brnd-d345 img {
+        max-width: 120px;
+        height: 100px;
+    }
+    .brands-heading-brnd-d345 {
+        margin-top: 36px;
+        margin-bottom: 24px;
+    }
+}
+
+
+/* ========== 480px ========== */
+@media (max-width: 480px) {
+    .brands-inner-brnd-d345 {
+        margin: 0px 0px;
+    }
+    .brands-grid-brnd-d345 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-bottom: 30px;
+    }
+    .brands-single-brnd-d345 img {
+        max-width: 110px;
+        height: 90px;
+    }
+    .brands-heading-brnd-d345 {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .brands-heading-brnd-d345 p {
+        font-size: 15px;
+    }
+}
+</style>
+
+<div class="brands-main-brnd-d345">
+    <div class="brands-inner-brnd-d345">
+
+        <div class="brands-heading-brnd-d345">
+            <p>Our Trusted Brands</p>
+        </div>
+
+        <div class="brands-grid-brnd-d345">
+
+            <div class="brands-single-brnd-d345">
+                <img src="brandImg1.png" alt="Coffee Shop">
+            </div>
+
+            <div class="brands-single-brnd-d345">
+                <img src="brandImg2.png" alt="Coffee Shop">
+            </div>
+
+            <div class="brands-single-brnd-d345">
+                <img src="brandImg3.png" alt="Coffee Tea Premium">
+            </div>
+
+            <div class="brands-single-brnd-d345">
+                <img src="brandImg4.png" alt="Premium Coffee">
+            </div>
+
+            <div class="brands-single-brnd-d345">
+                <img src="brandImg5.png" alt="Coffee House">
+            </div>
+
+        </div>
+    </div>
+</div>

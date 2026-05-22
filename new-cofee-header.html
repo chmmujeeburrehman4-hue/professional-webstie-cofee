@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee</title>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<style>
+.header-main-hdr-d345 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.header-inner-hdr-d345 {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    gap: 20px;
+}
+.header-logo-hdr-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.header-logo-hdr-d345 svg {
+    width: 28px;
+    height: 28px;
+}
+.header-logo-hdr-d345 span {
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.header-nav-hdr-d345 {
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-nav-hdr-d345 ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 6px;
+    align-items: center;
+}
+.header-nav-hdr-d345 ul li {
+    list-style: none;
+    position: relative;
+}
+.header-nav-hdr-d345 ul li a {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 14px;
+    display: inline-block;
+    transition: color 0.2s;
+}
+.header-nav-hdr-d345 ul li a:hover {
+    color: #e08a1e;
+}
+.header-nav-hdr-d345 ul li.active-hdr-d345 a {
+    color: #ffffff;
+}
+.header-nav-hdr-d345 ul li.active-hdr-d345::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #e08a1e;
+    border-radius: 50%;
+    margin: 2px auto 0 auto;
+}
+.header-phone-hdr-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+.header-phone-hdr-d345 svg {
+    width: 18px;
+    height: 18px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.header-phone-hdr-d345 span {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 500;
+}
+.hamburger-hdr-d345 {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 4px;
+}
+.hamburger-hdr-d345 span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+   .header-inner-hdr-d345 {
+  width: 84%;
+}
+    .header-nav-hdr-d345 ul li a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .header-phone-hdr-d345 span {
+        font-size: 14px;
+    }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    .header-inner-hdr-d345 {
+        /*padding: 0 20px;*/
+        position: relative;
+        flex-wrap: nowrap;
+        min-height: 60px;
+    }
+    .hamburger-hdr-d345 {
+        display: flex;
+    }
+    .header-nav-hdr-d345 {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(44, 24, 16, 0.97);
+        margin: 0;
+        z-index: 999;
+    }
+    .header-nav-hdr-d345.open-hdr-d345 {
+        display: block;
+    }
+    .header-nav-hdr-d345 ul {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+    }
+    .header-nav-hdr-d345 ul li {
+        width: 100%;
+        border-bottom: 1px solid #ffffff15;
+    }
+    .header-nav-hdr-d345 ul li a {
+        display: block;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    .header-nav-hdr-d345 ul li.active-hdr-d345::after {
+        display: none;
+    }
+    .header-phone-hdr-d345 {
+        display: none;
+    }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+    .header-inner-hdr-d345 {
+        /*padding: 0 16px;*/
+        min-height: 55px;
+    }
+    .header-logo-hdr-d345 span {
+        font-size: 18px;
+    }
+    .header-nav-hdr-d345 {
+        top: 55px;
+    }
+}
+</style>
+
+<div class="header-main-hdr-d345">
+    <div class="header-inner-hdr-d345">
+        <a href="#" class="header-logo-hdr-d345">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="18" r="18" fill="#e08a1e" opacity="0.20"/>
+                <path d="M10 14h16v3a8 8 0 01-16 0v-3z" fill="#e08a1e"/>
+                <rect x="24" y="12" width="4" height="6" rx="2" fill="#e08a1e" opacity="0.7"/>
+                <rect x="12" y="25" width="12" height="2" rx="1" fill="#e08a1e" opacity="0.6"/>
+            </svg>
+            <span>Coffee.</span>
+        </a>
+        <nav class="header-nav-hdr-d345" id="header-nav-hdr-d345">
+            <ul>
+                <li class="active-hdr-d345"><a href="index.html">Home</a></li>
+                <li><a href="about-1.html">About</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Review.html">Review</a></li>
+            </ul>
+        </nav>
+        <div class="header-phone-hdr-d345">
+            <svg viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+            </svg>
+            <span>0022-0303-2030</span>
+        </div>
+        <button class="hamburger-hdr-d345" id="hamburger-hdr-d345">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</div>
+
+
+<!-- ========== HERO SLIDER ========== -->
+<style>
+.slider-main-sldr-d345 {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0px auto;
+    position: relative;
+    overflow: hidden;
+}
+.slider-track-sldr-d345 {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+.slider-slide-sldr-d345 {
+    min-width: 100%;
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-slide-sldr-d345 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.slider-overlay-sldr-d345 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+.slider-content-sldr-d345 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.slider-tagline-sldr-d345 {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.slider-heading-sldr-d345 {
+    font-family: sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 30px 0;
+}
+.slider-btn-sldr-d345 {
+    display: inline-block;
+    background-color: #e08a1e;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 13px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.slider-btn-sldr-d345:hover {
+    background-color: #c97a10;
+}
+.slider-arrow-sldr-d345 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.slider-arrow-sldr-d345:hover {
+    background: rgba(255, 255, 255, 0.30);
+}
+.slider-arrow-sldr-d345 svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.slider-prev-sldr-d345 {
+    left: 30px;
+}
+.slider-next-sldr-d345 {
+    right: 30px;
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+    .slider-heading-sldr-d345 {
+        font-size: 40px;
+    }
+    .slider-content-sldr-d345 {
+        max-width: 500px;
+        padding: 0 20px;
+    }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    .slider-heading-sldr-d345 {
+        font-size: 32px;
+    }
+    .slider-tagline-sldr-d345 {
+        font-size: 14px;
+    }
+    .slider-btn-sldr-d345 {
+        font-size: 14px;
+        padding: 11px 28px;
+    }
+    .slider-prev-sldr-d345 {
+        left: 16px;
+    }
+    .slider-next-sldr-d345 {
+        right: 16px;
+    }
+    .slider-arrow-sldr-d345 {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+    .slider-heading-sldr-d345 {
+        font-size: 26px;
+    }
+    .slider-tagline-sldr-d345 {
+        font-size: 13px;
+    }
+    .slider-btn-sldr-d345 {
+        font-size: 13px;
+        padding: 10px 24px;
+    }
+    .slider-arrow-sldr-d345 {
+        width: 34px;
+        height: 34px;
+    }
+    .slider-arrow-sldr-d345 svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+</style>
+
+<div class="slider-main-sldr-d345">
+    <div class="slider-track-sldr-d345" id="slider-track-sldr-d345">
+
+        <!-- Slide 1 -->
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg1.jpg" alt="Coffee Slide 1">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">We really like what we do.</p>
+                <h1 class="slider-heading-sldr-d345">Coffee Beans with a Perfect Aroma</h1>
+                <a href="#" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg2.jpg" alt="Coffee Slide 2">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">Fresh brewed every morning.</p>
+                <h1 class="slider-heading-sldr-d345">Start Your Day with a Perfect Cup</h1>
+                <a href="#" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg3.jpg" alt="Coffee Slide 3">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">Experience the finest blends.</p>
+                <h1 class="slider-heading-sldr-d345">Rich Flavor in Every Single Sip</h1>
+                <a href="#" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Arrows -->
+    <button class="slider-arrow-sldr-d345 slider-prev-sldr-d345" id="slider-prev-sldr-d345">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="slider-arrow-sldr-d345 slider-next-sldr-d345" id="slider-next-sldr-d345">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+</div>
+
+<script>
+    // Header hamburger
+    var hamburger = document.getElementById('hamburger-hdr-d345');
+    var headerNav = document.getElementById('header-nav-hdr-d345');
+    hamburger.addEventListener('click', function() {
+        headerNav.classList.toggle('open-hdr-d345');
+    });
+
+    // Slider
+    var track = document.getElementById('slider-track-sldr-d345');
+    var slides = document.querySelectorAll('.slider-slide-sldr-d345');
+    var prevBtn = document.getElementById('slider-prev-sldr-d345');
+    var nextBtn = document.getElementById('slider-next-sldr-d345');
+    var current = 0;
+    var total = slides.length;
+
+    function goToSlide(index) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        current = index;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    }
+
+    prevBtn.addEventListener('click', function() {
+        goToSlide(current - 1);
+    });
+    nextBtn.addEventListener('click', function() {
+        goToSlide(current + 1);
+    });
+
+    // Auto slide every 4 seconds
+    setInterval(function() {
+        goToSlide(current + 1);
+    }, 4000);
+</script>
+
+</body>
+</html>

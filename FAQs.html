@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* HEADER KI FIX CODING */
+        .mj-header-fixed {
+            width: 100%;
+            position: fixed; /* Scroll ke sath sath chalay ga */
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95); /* Light white background with slight transparency */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Halka sa shadow taake slider se alag dikhe */
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+
+        /* Logo aur Menu ka color fix */
+        .mj-logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333; /* Dark color taake white background par nazar aaye */
+            text-decoration: none;
+        }
+
+        .mj-logo-text span {
+            color: #e08a1e;
+        }
+
+        .mj-nav-list {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .mj-nav-list li a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .mj-nav-list li a:hover {
+            color: #e08a1e;
+        }
+
+        /* Phone Number Styling */
+        .mj-contact-info {
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Page Content Spacing (Taake header content ko chhupaye na) */
+        body {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="mj-header-fixed">
+        <a href="#" class="mj-logo-text">Coffee<span>.</span></a>
+        
+        <nav>
+            <ul class="mj-nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="about-1.html">About</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Review.html">Review</a></li>
+            </ul>
+        </nav>
+
+        <div class="mj-contact-info">
+            <i class="fa fa-phone"></i> 0022-0303-2030
+        </div>
+    </header>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House | Frequently Asked Questions</title>
+    <style>
+        /* 1. Reset & Theme */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #fdfaf7; color: #2c1810; padding: 80px 0; }
+
+        .cf-faq-wrapper { max-width: 850px; margin: 0 auto; padding: 0 20px; }
+
+        /* 2. Header */
+        .cf-faq-header { text-align: center; margin-bottom: 50px; }
+        .cf-faq-header h2 { font-size: 36px; color: #2c1810; font-weight: 700; letter-spacing: 1px; }
+        .cf-faq-header span { color: #e08a1e; }
+        .cf-faq-header p { color: #8d6e63; margin-top: 10px; font-size: 16px; }
+
+        /* 3. Accordion Styling */
+        .cf-faq-container { display: flex; flex-direction: column; gap: 15px; }
+
+        .cf-faq-item {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #efebe9;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(44, 24, 16, 0.04);
+            transition: 0.3s;
+        }
+
+        /* Question Box */
+        .cf-faq-question {
+            padding: 22px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 17px;
+            color: #2c1810;
+            transition: 0.3s;
+        }
+
+        .cf-faq-question:hover { color: #e08a1e; background: #fffcf9; }
+
+        /* Icon styling */
+        .cf-faq-icon {
+            width: 28px;
+            height: 28px;
+            background: #e08a1e;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: 0.4s;
+        }
+
+        /* Answer Box */
+        .cf-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #fff;
+        }
+
+        .cf-faq-answer p {
+            padding: 0 30px 25px 30px;
+            color: #6d4c41;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Active State Classes */
+        .cf-faq-item.active { border-color: #e08a1e; }
+        .cf-faq-item.active .cf-faq-answer { max-height: 250px; }
+        .cf-faq-item.active .cf-faq-icon { transform: rotate(45deg); background: #2c1810; }
+        .cf-faq-item.active .cf-faq-question { color: #e08a1e; border-bottom: 1px solid #f9f4f0; }
+
+    </style>
+</head>
+<body>
+
+    <div class="cf-faq-wrapper">
+        
+        <div class="cf-faq-header">
+            <h2>Frequently Asked <span>Questions</span></h2>
+            <p>Find answers to the most common queries about our café and services.</p>
+        </div>
+
+        <div class="cf-faq-container">
+            
+            <div class="cf-faq-item">
+                <div class="cf-faq-question" onclick="toggleFaq(this)">
+                    Do you offer home delivery services?
+                    <div class="cf-faq-icon">+</div>
+                </div>
+                <div class="cf-faq-answer">
+                    <p>Yes, we provide fresh delivery across the city. You can place your order directly through our website or via our partner delivery apps.</p>
+                </div>
+            </div>
+
+            <div class="cf-faq-item">
+                <div class="cf-faq-question" onclick="toggleFaq(this)">
+                    What kind of coffee beans do you use?
+                    <div class="cf-faq-icon">+</div>
+                </div>
+                <div class="cf-faq-answer">
+                    <p>We use premium 100% Arabica beans, ethically sourced from the best high-altitude farms in Ethiopia and Brazil, roasted daily for maximum freshness.</p>
+                </div>
+            </div>
+
+            <div class="cf-faq-item">
+                <div class="cf-faq-question" onclick="toggleFaq(this)">
+                    How can I book a Private or Meeting Room?
+                    <div class="cf-faq-icon">+</div>
+                </div>
+                <div class="cf-faq-answer">
+                    <p>You can book your preferred space by visiting our "Rooms" section and filling out the reservation form, or by calling our support line for instant booking.</p>
+                </div>
+            </div>
+
+            <div class="cf-faq-item">
+                <div class="cf-faq-question" onclick="toggleFaq(this)">
+                    Are there any sugar-free or vegan options?
+                    <div class="cf-faq-icon">+</div>
+                </div>
+                <div class="cf-faq-answer">
+                    <p>Absolutely! We offer Stevia as a natural sweetener and provide various dairy-free milk alternatives like Almond and Oat milk for our vegan customers.</p>
+                </div>
+            </div>
+
+            <div class="cf-faq-item">
+                <div class="cf-faq-question" onclick="toggleFaq(this)">
+                    What are your opening and closing hours?
+                    <div class="cf-faq-icon">+</div>
+                </div>
+                <div class="cf-faq-answer">
+                    <p>Our café is open from 8:00 AM to 11:00 PM on weekdays. On weekends (Friday-Sunday), we stay open until 1:00 AM to serve your late-night cravings.</p>
+                </div>
+            </div>
+
+            <div class="cf-faq-item">
+                <div class="cf-faq-question" onclick="toggleFaq(this)">
+                    Can I host a small event at your café?
+                    <div class="cf-faq-icon">+</div>
+                </div>
+                <div class="cf-faq-answer">
+                    <p>Yes, we have a specialized Event Room perfect for birthday parties, workshops, and corporate meetings. Contact our team for customized décor and catering packages.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            // Optional: Close other open items
+            const allItems = document.querySelectorAll('.cf-faq-item');
+            allItems.forEach(i => {
+                if (i !== item) i.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.footer2-main-ftr2-d345 {
+    width: 100%;
+    background-color: #1e1e1e;
+    max-width: 1300px;
+    margin: 0px auto;
+    overflow-x: hidden;
+}
+.footer2-inner-ftr2-d345 {
+    width: 100%;
+     padding: 20px 20px;
+}
+.footer2-flex-ftr2-d345 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.footer2-col-ftr2-d345 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer2-logo-ftr2-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.footer2-logo-ftr2-d345 svg {
+    width: 22px;
+    height: 22px;
+    stroke: #aaaaaa;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.footer2-logo-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.footer2-desc-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.8;
+    max-width: 220px;
+    margin: 0px;
+}
+.footer2-address-ftr2-d345 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 6px;
+}
+.footer2-address-ftr2-d345 svg {
+    width: 16px;
+    height: 16px;
+    stroke: #888888;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.footer2-address-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.7;
+}
+.footer2-col-title-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0px 0px 6px 0px;
+}
+.footer2-links-ftr2-d345 {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer2-links-ftr2-d345 li a {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer2-links-ftr2-d345 li a:hover {
+    color: #e08a1e;
+}
+.footer2-bottom-ftr2-d345 {
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+.footer2-bottom-ftr2-d345 p {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #666666;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+
+/* ========== 1024px ========== */
+@media (max-width: 1024px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 24px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 180px;
+    }
+}
+
+
+/* ========== 768px ========== */
+@media (max-width: 768px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 100%;
+    }
+}
+
+
+/* ========== 480px ========== */
+@media (max-width: 480px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 30px;
+        margin-bottom: 24px;
+    }
+    .footer2-col-title-ftr2-d345 {
+        font-size: 15px;
+    }
+    .footer2-links-ftr2-d345 li a {
+        font-size: 13px;
+    }
+    .footer2-logo-ftr2-d345 span {
+        font-size: 16px;
+    }
+}
+</style>
+
+<div class="footer2-main-ftr2-d345">
+    <div class="footer2-inner-ftr2-d345">
+
+        <div class="footer2-flex-ftr2-d345">
+
+            <!-- Col 1 — Logo + Desc + Address -->
+            <div class="footer2-col-ftr2-d345">
+                <div class="footer2-logo-ftr2-d345">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 2h12v4a6 6 0 01-12 0V2z"/>
+                        <rect x="4" y="18" width="16" height="2" rx="1"/>
+                        <path d="M18 4h2a2 2 0 010 4h-2"/>
+                    </svg>
+                    <span>Coffee.</span>
+                </div>
+                <p class="footer2-desc-ftr2-d345">Coffee is a cafe that serve many variant of coffee and other dishes with very comfortable place.</p>
+                <div class="footer2-address-ftr2-d345">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                    <span>USA Californa 65 South Fifth St.Sicklerville, NJ 08081</span>
+                </div>
+            </div>
+
+            <!-- Col 2 — Facility -->
+           <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Facility</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="private Room.html">Private Room</a></li>
+                    <li><a href="Meeting Room.html">Meeting Room</a></li>
+                    <li><a href="Event Room.html">Event Room</a></li>
+                    <li><a href="Creative Studio.html">Creative Studio</a></li>
+                    <li><a href="Custom Room.html">Custom Room</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Product</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="coffee.html">Coffee</a></li>
+                    <li><a href="beverages.html">Beverages</a></li>
+                    <li><a href="dishes.html">Dishes</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Support</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="about-1.html">About Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="Private Policy.html">Privacy Policy</a></li>
+                    <li><a href="Help Us.html">Help Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer2-bottom-ftr2-d345">
+            <p>&copy; CodingLab. All rigths reserved</p>
+        </div>
+
+    </div>
+</div>

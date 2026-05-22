@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee</title>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<style>
+.header-main-hdr-d345 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.header-inner-hdr-d345 {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    gap: 20px;
+}
+.header-logo-hdr-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.header-logo-hdr-d345 svg {
+    width: 28px;
+    height: 28px;
+}
+.header-logo-hdr-d345 span {
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.header-nav-hdr-d345 {
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-nav-hdr-d345 ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 6px;
+    align-items: center;
+}
+.header-nav-hdr-d345 ul li {
+    list-style: none;
+    position: relative;
+}
+.header-nav-hdr-d345 ul li a {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 14px;
+    display: inline-block;
+    transition: color 0.2s;
+}
+.header-nav-hdr-d345 ul li a:hover {
+    color: #e08a1e;
+}
+.header-nav-hdr-d345 ul li.active-hdr-d345 a {
+    color: #ffffff;
+}
+.header-nav-hdr-d345 ul li.active-hdr-d345::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #e08a1e;
+    border-radius: 50%;
+    margin: 2px auto 0 auto;
+}
+.header-phone-hdr-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+.header-phone-hdr-d345 svg {
+    width: 18px;
+    height: 18px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.header-phone-hdr-d345 span {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 500;
+}
+.hamburger-hdr-d345 {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 4px;
+}
+.hamburger-hdr-d345 span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+   .header-inner-hdr-d345 {
+  width: 84%;
+}
+    .header-nav-hdr-d345 ul li a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .header-phone-hdr-d345 span {
+        font-size: 14px;
+    }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    .header-inner-hdr-d345 {
+        /*padding: 0 20px;*/
+        position: relative;
+        flex-wrap: nowrap;
+        min-height: 60px;
+    }
+    .hamburger-hdr-d345 {
+        display: flex;
+    }
+    .header-nav-hdr-d345 {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(44, 24, 16, 0.97);
+        margin: 0;
+        z-index: 999;
+    }
+    .header-nav-hdr-d345.open-hdr-d345 {
+        display: block;
+    }
+    .header-nav-hdr-d345 ul {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+    }
+    .header-nav-hdr-d345 ul li {
+        width: 100%;
+        border-bottom: 1px solid #ffffff15;
+    }
+    .header-nav-hdr-d345 ul li a {
+        display: block;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    .header-nav-hdr-d345 ul li.active-hdr-d345::after {
+        display: none;
+    }
+    .header-phone-hdr-d345 {
+        display: none;
+    }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+    .header-inner-hdr-d345 {
+        /*padding: 0 16px;*/
+        min-height: 55px;
+    }
+    .header-logo-hdr-d345 span {
+        font-size: 18px;
+    }
+    .header-nav-hdr-d345 {
+        top: 55px;
+    }
+}
+</style>
+
+<div class="header-main-hdr-d345">
+    <div class="header-inner-hdr-d345">
+        <a href="#" class="header-logo-hdr-d345">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="18" r="18" fill="#e08a1e" opacity="0.20"/>
+                <path d="M10 14h16v3a8 8 0 01-16 0v-3z" fill="#e08a1e"/>
+                <rect x="24" y="12" width="4" height="6" rx="2" fill="#e08a1e" opacity="0.7"/>
+                <rect x="12" y="25" width="12" height="2" rx="1" fill="#e08a1e" opacity="0.6"/>
+            </svg>
+            <span>Coffee.</span>
+        </a>
+        <nav class="header-nav-hdr-d345" id="header-nav-hdr-d345">
+            <ul>
+                <li class="active-hdr-d345"><a href="#">Home</a></li>
+                <li><a href="about-1.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="Review.html">Review</a></li>
+            </ul>
+        </nav>
+        <div class="header-phone-hdr-d345">
+            <svg viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+            </svg>
+            <span>0022-0303-2030</span>
+        </div>
+        <button class="hamburger-hdr-d345" id="hamburger-hdr-d345">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</div>
+
+
+<!-- ========== HERO SLIDER ========== -->
+<style>
+.slider-main-sldr-d345 {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0px auto;
+    position: relative;
+    overflow: hidden;
+}
+.slider-track-sldr-d345 {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+.slider-slide-sldr-d345 {
+    min-width: 100%;
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-slide-sldr-d345 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.slider-overlay-sldr-d345 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+.slider-content-sldr-d345 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.slider-tagline-sldr-d345 {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.slider-heading-sldr-d345 {
+    font-family: sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 30px 0;
+}
+.slider-btn-sldr-d345 {
+    display: inline-block;
+    background-color: #e08a1e;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 13px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.slider-btn-sldr-d345:hover {
+    background-color: #c97a10;
+}
+.slider-arrow-sldr-d345 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.slider-arrow-sldr-d345:hover {
+    background: rgba(255, 255, 255, 0.30);
+}
+.slider-arrow-sldr-d345 svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.slider-prev-sldr-d345 {
+    left: 30px;
+}
+.slider-next-sldr-d345 {
+    right: 30px;
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+    .slider-heading-sldr-d345 {
+        font-size: 40px;
+    }
+    .slider-content-sldr-d345 {
+        max-width: 500px;
+        padding: 0 20px;
+    }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    .slider-heading-sldr-d345 {
+        font-size: 32px;
+    }
+    .slider-tagline-sldr-d345 {
+        font-size: 14px;
+    }
+    .slider-btn-sldr-d345 {
+        font-size: 14px;
+        padding: 11px 28px;
+    }
+    .slider-prev-sldr-d345 {
+        left: 16px;
+    }
+    .slider-next-sldr-d345 {
+        right: 16px;
+    }
+    .slider-arrow-sldr-d345 {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+    .slider-heading-sldr-d345 {
+        font-size: 26px;
+    }
+    .slider-tagline-sldr-d345 {
+        font-size: 13px;
+    }
+    .slider-btn-sldr-d345 {
+        font-size: 13px;
+        padding: 10px 24px;
+    }
+    .slider-arrow-sldr-d345 {
+        width: 34px;
+        height: 34px;
+    }
+    .slider-arrow-sldr-d345 svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+</style>
+
+<div class="slider-main-sldr-d345">
+    <div class="slider-track-sldr-d345" id="slider-track-sldr-d345">
+
+        <!-- Slide 1 -->
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg1.jpg" alt="Coffee Slide 1">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">We really like what we do.</p>
+                <h1 class="slider-heading-sldr-d345">Coffee Beans with a Perfect Aroma</h1>
+                <a href="#" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg2.jpg" alt="Coffee Slide 2">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">Fresh brewed every morning.</p>
+                <h1 class="slider-heading-sldr-d345">Start Your Day with a Perfect Cup</h1>
+                <a href="#" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slider-slide-sldr-d345">
+            <img src="homeImg3.jpg" alt="Coffee Slide 3">
+            <div class="slider-overlay-sldr-d345"></div>
+            <div class="slider-content-sldr-d345">
+                <p class="slider-tagline-sldr-d345">Experience the finest blends.</p>
+                <h1 class="slider-heading-sldr-d345">Rich Flavor in Every Single Sip</h1>
+                <a href="#" class="slider-btn-sldr-d345">Explore</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Arrows -->
+    <button class="slider-arrow-sldr-d345 slider-prev-sldr-d345" id="slider-prev-sldr-d345">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="slider-arrow-sldr-d345 slider-next-sldr-d345" id="slider-next-sldr-d345">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+</div>
+
+<script>
+    // Header hamburger
+    var hamburger = document.getElementById('hamburger-hdr-d345');
+    var headerNav = document.getElementById('header-nav-hdr-d345');
+    hamburger.addEventListener('click', function() {
+        headerNav.classList.toggle('open-hdr-d345');
+    });
+
+    // Slider
+    var track = document.getElementById('slider-track-sldr-d345');
+    var slides = document.querySelectorAll('.slider-slide-sldr-d345');
+    var prevBtn = document.getElementById('slider-prev-sldr-d345');
+    var nextBtn = document.getElementById('slider-next-sldr-d345');
+    var current = 0;
+    var total = slides.length;
+
+    function goToSlide(index) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        current = index;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    }
+
+    prevBtn.addEventListener('click', function() {
+        goToSlide(current - 1);
+    });
+    nextBtn.addEventListener('click', function() {
+        goToSlide(current + 1);
+    });
+
+    // Auto slide every 4 seconds
+    setInterval(function() {
+        goToSlide(current + 1);
+    }, 4000);
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story | The Coffee House</title>
+<style>
+    /* Global Styles */
+    body {
+        font-family: 'Barlow', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfaf7; /* Light Creamy Coffee background */
+        color: #3e2723; /* Dark Coffee brown */
+        line-height: 1.8;
+    }
+
+    /* Hero Section */
+    div.about-hero {
+        background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('coffee-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+    }
+
+    h1.hero-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 60px;
+        margin: 0;
+    }
+
+    /* Content Section */
+    div.about-container {
+        max-width: 1100px;
+        margin: -50px auto 80px;
+        background: white;
+        padding: 60px;
+        border-radius: 20px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+        position: relative;
+    }
+
+    div.story-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+
+    h2.section-heading {
+        font-family: 'Oswald', sans-serif;
+        font-size: 32px;
+        color: #6f4e37; /* Lighter Coffee Brown */
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    div.story-img img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 10px 10px 0px #c9b191;
+    }
+
+    /* Values/Features */
+    div.values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    div.value-card {
+        padding: 30px;
+        border: 1px solid #eee;
+        border-radius: 15px;
+        transition: 0.3s;
+    }
+
+    div.value-card:hover {
+        background-color: #6f4e37;
+        color: white;
+    }
+
+    div.value-icon { font-size: 40px; margin-bottom: 15px; }
+
+    /* Mobile Responsive */
+    @media (max-width: 850px) {
+        div.story-section { grid-template-columns: 1fr; }
+        div.values-grid { grid-template-columns: 1fr; }
+        div.about-container { padding: 30px; margin-top: 20px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="about-hero">
+    <div>
+        <h1 class="hero-title">Our Coffee Story</h1>
+        <p>Brewing perfection in every cup since 2026.</p>
+    </div>
+</div>
+
+<div class="about-container">
+    <div class="story-section">
+        <div class="story-text">
+            <h2 class="section-heading">How It Started</h2>
+            <p>Hamara safar ek choti si khwahish se shuru hua: "Behtreen Coffee". Humne duniya ke sab se achay baghathon se beans chunay taake aapko milay asli aur taaza maza. Coffee sirf ek drink nahi, ye hamari passion hai.</p>
+            <p>Rotary Farms Coffee mein hum har bean ko itiyat se roast karte hain taake uska makhsoos maza aur khushbu barqarar rahe.</p>
+        </div>
+        <div class="story-img">
+            <img src="coffee-roasting.jpg" alt="Roasting Beans">
+        </div>
+    </div>
+
+    <div class="values-grid">
+        <div class="value-card">
+            <div class="value-icon">☕</div>
+            <h3 style="margin-bottom:10px;">Premium Quality</h3>
+            <p style="font-size:14px;">100% Arabica beans jo duniya ke top regions se laye gaye hain.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">🌱</div>
+            <h3 style="margin-bottom:10px;">Organic Sourcing</h3>
+            <p style="font-size:14px;">Hum kisanon ke saath mil kar kaam karte hain aur organic tareeqon ko support karte hain.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">🔥</div>
+            <h3 style="margin-bottom:10px;">Fresh Roasting</h3>
+            <p style="font-size:14px;">Har order par taaza roasting taake aapko mile asli aroma.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.footer2-main-ftr2-d345 {
+    width: 100%;
+    background-color: #1e1e1e;
+    max-width: 1300px;
+    margin: 0px auto;
+    overflow-x: hidden;
+}
+.footer2-inner-ftr2-d345 {
+    width: 100%;
+     padding: 20px 20px;
+}
+.footer2-flex-ftr2-d345 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.footer2-col-ftr2-d345 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer2-logo-ftr2-d345 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.footer2-logo-ftr2-d345 svg {
+    width: 22px;
+    height: 22px;
+    stroke: #aaaaaa;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.footer2-logo-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.footer2-desc-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.8;
+    max-width: 220px;
+    margin: 0px;
+}
+.footer2-address-ftr2-d345 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 6px;
+}
+.footer2-address-ftr2-d345 svg {
+    width: 16px;
+    height: 16px;
+    stroke: #888888;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.footer2-address-ftr2-d345 span {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.7;
+}
+.footer2-col-title-ftr2-d345 {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0px 0px 6px 0px;
+}
+.footer2-links-ftr2-d345 {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer2-links-ftr2-d345 li a {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer2-links-ftr2-d345 li a:hover {
+    color: #e08a1e;
+}
+.footer2-bottom-ftr2-d345 {
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+.footer2-bottom-ftr2-d345 p {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #666666;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+
+/* ========== 1024px ========== */
+@media (max-width: 1024px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 24px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 180px;
+    }
+}
+
+
+/* ========== 768px ========== */
+@media (max-width: 768px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    .footer2-desc-ftr2-d345 {
+        max-width: 100%;
+    }
+}
+
+
+/* ========== 480px ========== */
+@media (max-width: 480px) {
+    .footer2-inner-ftr2-d345 {
+        margin: 0px 0px;
+    }
+    .footer2-flex-ftr2-d345 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 30px;
+        margin-bottom: 24px;
+    }
+    .footer2-col-title-ftr2-d345 {
+        font-size: 15px;
+    }
+    .footer2-links-ftr2-d345 li a {
+        font-size: 13px;
+    }
+    .footer2-logo-ftr2-d345 span {
+        font-size: 16px;
+    }
+}
+</style>
+
+<div class="footer2-main-ftr2-d345">
+    <div class="footer2-inner-ftr2-d345">
+
+        <div class="footer2-flex-ftr2-d345">
+
+            <!-- Col 1 — Logo + Desc + Address -->
+            <div class="footer2-col-ftr2-d345">
+                <div class="footer2-logo-ftr2-d345">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 2h12v4a6 6 0 01-12 0V2z"/>
+                        <rect x="4" y="18" width="16" height="2" rx="1"/>
+                        <path d="M18 4h2a2 2 0 010 4h-2"/>
+                    </svg>
+                    <span>Coffee.</span>
+                </div>
+                <p class="footer2-desc-ftr2-d345">Coffee is a cafe that serve many variant of coffee and other dishes with very comfortable place.</p>
+                <div class="footer2-address-ftr2-d345">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                    <span>USA Californa 65 South Fifth St.Sicklerville, NJ 08081</span>
+                </div>
+            </div>
+
+            <!-- Col 2 — Facility -->
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Facility</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="private Room.html">Private Room</a></li>
+                    <li><a href="Meeting Room.html">Meeting Room</a></li>
+                    <li><a href="Event Room.html">Event Room</a></li>
+                    <li><a href="Creative Studio.html">Creative Studio</a></li>
+                    <li><a href="Custom Room.html">Custom Room</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Product</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="coffee.html">Coffee</a></li>
+                    <li><a href="beverages.html">Beverages</a></li>
+                    <li><a href="dishes.html">Dishes</a></li>
+                </ul>
+            </div>
+            <div class="footer2-col-ftr2-d345">
+                <h3 class="footer2-col-title-ftr2-d345">Support</h3>
+                <ul class="footer2-links-ftr2-d345">
+                    <li><a href="about-1.html">About Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="Private Policy.html">Privacy Policy</a></li>
+                    <li><a href="Help Us.html">Help Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer2-bottom-ftr2-d345">
+            <p>&copy; CodingLab. All rigths reserved</p>
+        </div>
+
+    </div>
+</div>
