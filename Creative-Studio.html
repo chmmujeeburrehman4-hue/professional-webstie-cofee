@@ -68,7 +68,7 @@
         
         <nav>
             <ul class="mj-nav-list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="about-1.html">About</a></li>
                 <li><a href="Menu.html">Menu</a></li>
                 <li><a href="Review.html">Review</a></li>
@@ -83,200 +83,176 @@
 </body>
 </html>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Service Grid</title>
-    
+    <title>Creative Studio | Mujeeb Ur Rehman</title>
     <style>
-        /* Base Setup */
+        /* 1. Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #fafafa; padding: 60px 0; }
+        body { background-color: #0f0f0f; color: #ffffff; line-height: 1.6; }
 
-        .mj-main-wrapper {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 15px;
+        .cs-studio-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+
+        /* 2. Artistic Header */
+        .cs-studio-header { text-align: center; margin-bottom: 70px; }
+        .cs-studio-header h1 { font-size: 50px; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
+        .cs-studio-header span { color: #ff3e3e; text-transform: uppercase; }
+        .cs-studio-header p { color: #888; font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+        /* 3. Creative 6-Box Grid */
+        .cs-studio-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            margin-bottom: 90px;
         }
 
-        .mj-section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 45px;
-            letter-spacing: -0.5px;
-        }
-
-        /* 6 Box Grid System */
-        .mj-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        /* New Unique Card Classes */
-        .mj-service-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #eaeaea;
+        .cs-studio-card {
+            background: #1a1a1a;
+            border-radius: 5px; /* Sharp modern edges */
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            transition: 0.5s ease;
+            border-bottom: 3px solid transparent;
         }
 
-        .mj-service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #e08a1e;
+        .cs-studio-card:hover { 
+            transform: scale(1.03); 
+            border-bottom-color: #ff3e3e; 
+            background: #222;
         }
 
-        .mj-image-holder {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
+        .cs-studio-img-box { width: 100%; height: 250px; overflow: hidden; position: relative; }
+        .cs-studio-img-box img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+        .cs-studio-card:hover img { filter: grayscale(0%); }
+
+        .cs-studio-body { padding: 30px; }
+        .cs-studio-body h3 { font-size: 22px; margin-bottom: 15px; color: #fff; }
+        .cs-studio-body p { font-size: 14px; color: #aaa; margin-bottom: 25px; }
+
+        .cs-studio-link { 
+            color: #ff3e3e; text-decoration: none; font-weight: 700; 
+            font-size: 13px; text-transform: uppercase; letter-spacing: 2px;
+            border-bottom: 1px solid #ff3e3e; padding-bottom: 5px;
         }
 
-        .mj-image-holder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
+        /* 4. The Process Section */
+        .cs-process-section { 
+            background: #151515; padding: 60px; border-radius: 20px; 
+            display: flex; justify-content: space-around; text-align: center;
         }
+        .cs-step h4 { color: #ff3e3e; font-size: 24px; margin-bottom: 10px; }
+        .cs-step p { color: #666; font-size: 14px; }
 
-        .mj-service-card:hover .mj-image-holder img {
-            transform: scale(1.1);
-        }
-
-        .mj-info-box {
-            padding: 25px;
-            flex-grow: 1;
-        }
-
-        .mj-info-box h3 {
-            font-size: 22px;
-            color: #222;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .mj-info-box p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        /* Button Style */
-        .mj-action-btn {
-            display: inline-block;
-            background-color: #e08a1e;
-            color: #ffffff;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .mj-action-btn:hover {
-            background-color: transparent;
-            color: #e08a1e;
-            border-color: #e08a1e;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 991px) {
-            .mj-grid-layout { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 650px) {
-            .mj-grid-layout { grid-template-columns: 1fr; }
-            .mj-section-title { font-size: 28px; }
+        /* Responsive */
+        @media (max-width: 992px) { .cs-studio-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { 
+            .cs-studio-grid { grid-template-columns: 1fr; }
+            .cs-studio-header h1 { font-size: 34px; }
+            .cs-process-section { flex-direction: column; gap: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="mj-main-wrapper">
-        <h2 class="mj-section-title">Explore Our Services</h2>
-
-        <div class="mj-grid-layout">
-            
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Premium Coffee</h3>
-                    <p>Behtareen seeds se bani taaza coffee jo aapka din bana de.</p>
-                    <a href="#" class="mj-action-btn">Order Now</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Shopify Design</h3>
-                    <p>Professional Shopify stores ki mukammal customization aur setup.</p>
-                    <a href="#" class="mj-action-btn">Hire Me</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Data Entry</h3>
-                    <p>Fast aur accurate data entry services aapke business ke liye.</p>
-                    <a href="#" class="mj-action-btn">Get Quote</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Web Coding</h3>
-                    <p>HTML, CSS aur JSON mein neat aur clean bug-free coding.</p>
-                    <a href="#" class="mj-action-btn">Contact</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Logo Design</h3>
-                    <p>Aapke brand ke liye modern aur attractive digital animation aur logos.</p>
-                    <a href="#" class="mj-action-btn">See Portfolio</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Store Audit</h3>
-                    <p>Store performance check karein aur sales ko behtar banayein.</p>
-                    <a href="#" class="mj-action-btn">Start Audit</a>
-                </div>
-            </div>
-
+    <div class="cs-studio-container">
+        
+        <div class="cs-studio-header">
+            <h1>The <span>Creative</span> Studio</h1>
+            <p>A space designed for content creators, photographers, and visionaries.</p>
         </div>
+
+        <div class="cs-studio-grid">
+            <div class="cs-studio-card">
+                <div class="cs-studio-img-box">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600" alt="Photography">
+                </div>
+                <div class="cs-studio-body">
+                    <h3>Photo Shoots</h3>
+                    <p>Professional lighting aur backdrops ke sath premium photography space.</p>
+                    <a href="#" class="cs-studio-link">Explore Space</a>
+                </div>
+            </div>
+
+            <div class="cs-studio-card">
+                <div class="cs-studio-img-box">
+                    <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600" alt="Podcast">
+                </div>
+                <div class="cs-studio-body">
+                    <h3>Podcast Station</h3>
+                    <p>High-quality microphones aur sound-proofing ke sath podcasting setup.</p>
+                    <a href="#" class="cs-studio-link">Explore Space</a>
+                </div>
+            </div>
+
+            <div class="cs-studio-card">
+                <div class="cs-studio-img-box">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600" alt="Editing">
+                </div>
+                <div class="cs-studio-body">
+                    <h3>Editing Suite</h3>
+                    <p>Dual-monitor setups aur high-end PCs aapki post-production ke liye.</p>
+                    <a href="#" class="cs-studio-link">Explore Space</a>
+                </div>
+            </div>
+
+            <div class="cs-studio-card">
+                <div class="cs-studio-img-box">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600" alt="Vlogging">
+                </div>
+                <div class="cs-studio-body">
+                    <h3>Vlog Corner</h3>
+                    <p>Aesthetic corners aur ring lights jo YouTube vlogs ke liye perfect hain.</p>
+                    <a href="#" class="cs-studio-link">Explore Space</a>
+                </div>
+            </div>
+
+            <div class="cs-studio-card">
+                <div class="cs-studio-img-box">
+                    <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=600" alt="Animation">
+                </div>
+                <div class="cs-studio-body">
+                    <h3>3D Animation Hub</h3>
+                    <p>Render farms ki sahulet taake aapki animations jaldi process ho saken.</p>
+                    <a href="#" class="cs-studio-link">Explore Space</a>
+                </div>
+            </div>
+
+            <div class="cs-studio-card">
+                <div class="cs-studio-img-box">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600" alt="Workshop">
+                </div>
+                <div class="cs-studio-body">
+                    <h3>Art Workshops</h3>
+                    <p>Choti classes aur digital art workshops ke liye ideal environment.</p>
+                    <a href="#" class="cs-studio-link">Explore Space</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cs-process-section">
+            <div class="cs-step">
+                <h4>01</h4>
+                <p>Concept Design</p>
+            </div>
+            <div class="cs-step">
+                <h4>02</h4>
+                <p>Production</p>
+            </div>
+            <div class="cs-step">
+                <h4>03</h4>
+                <p>Rendering</p>
+            </div>
+            <div class="cs-step">
+                <h4>04</h4>
+                <p>Final Output</p>
+            </div>
+        </div>
+
     </div>
 
 </body>
@@ -480,7 +456,7 @@
             </div>
 
             <!-- Col 2 — Facility -->
-           <div class="footer2-col-ftr2-d345">
+            <div class="footer2-col-ftr2-d345">
                 <h3 class="footer2-col-title-ftr2-d345">Facility</h3>
                 <ul class="footer2-links-ftr2-d345">
                     <li><a href="private-Room.html">Private Room</a></li>
@@ -508,8 +484,11 @@
                 </ul>
             </div>
         </div>
+
+        <!-- Bottom Bar -->
         <div class="footer2-bottom-ftr2-d345">
-            <p>&copy; 2024 Coffee. All Rights Reserved.</p>
+            <p>&copy; CodingLab. All rigths reserved</p>
         </div>
+
     </div>
 </div>

@@ -68,7 +68,7 @@
         
         <nav>
             <ul class="mj-nav-list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="about-1.html">About</a></li>
                 <li><a href="Menu.html">Menu</a></li>
                 <li><a href="Review.html">Review</a></li>
@@ -83,196 +83,166 @@
 </body>
 </html>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Service Grid</title>
-    
+    <title>Refreshing Beverages | Chill Zone</title>
     <style>
-        /* Base Setup */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #fafafa; padding: 60px 0; }
+        /* 1. Core Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f0f9ff; color: #1e293b; padding: 60px 0; }
 
-        .mj-main-wrapper {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 15px;
+        .bv-fresh-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* 2. Refreshing Header */
+        .bv-fresh-header { text-align: center; margin-bottom: 50px; }
+        .bv-fresh-header h1 { font-size: 40px; font-weight: 800; color: #0369a1; text-transform: uppercase; }
+        .bv-fresh-header span { color: #0ea5e9; }
+        .bv-fresh-header p { color: #64748b; font-size: 16px; margin-top: 5px; }
+
+        /* 3. 6-Box Grid (Beverages) */
+        .bv-fresh-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 25px; 
         }
 
-        .mj-section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 45px;
-            letter-spacing: -0.5px;
-        }
-
-        /* 6 Box Grid System */
-        .mj-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        /* New Unique Card Classes */
-        .mj-service-card {
+        .bv-fresh-card {
             background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #eaeaea;
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: 0.4s ease;
+            border: 1px solid #e2e8f0;
             text-align: center;
         }
 
-        .mj-service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #e08a1e;
+        .bv-fresh-card:hover { 
+            transform: scale(1.02); 
+            box-shadow: 0 20px 30px rgba(14, 165, 233, 0.15);
+            border-color: #0ea5e9;
         }
 
-        .mj-image-holder {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
+        .bv-fresh-img { width: 100%; height: 220px; overflow: hidden; position: relative; }
+        .bv-fresh-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        
+        /* Badge for Cold Drinks */
+        .bv-fresh-badge {
+            position: absolute; top: 15px; right: 15px;
+            background: rgba(14, 165, 233, 0.9); color: white;
+            padding: 5px 12px; border-radius: 50px; font-size: 11px; font-weight: 700;
         }
 
-        .mj-image-holder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
+        .bv-fresh-card:hover .bv-fresh-img img { transform: scale(1.1) rotate(2deg); }
 
-        .mj-service-card:hover .mj-image-holder img {
-            transform: scale(1.1);
-        }
+        .bv-fresh-info { padding: 25px; }
+        .bv-fresh-info h3 { font-size: 20px; color: #0f172a; margin-bottom: 10px; }
+        .bv-fresh-info p { font-size: 14px; color: #64748b; margin-bottom: 15px; line-height: 1.5; }
+        
+        .bv-fresh-price { font-size: 22px; font-weight: 800; color: #0ea5e9; display: block; margin-bottom: 20px; }
 
-        .mj-info-box {
-            padding: 25px;
-            flex-grow: 1;
+        /* 4. Refresh Button */
+        .bv-fresh-btn { 
+            background: #0ea5e9; color: #fff; padding: 12px 25px; 
+            text-decoration: none; border-radius: 50px; font-size: 14px; font-weight: 600;
+            display: inline-block; transition: 0.3s;
         }
+        .bv-fresh-btn:hover { background: #0369a1; box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4); }
 
-        .mj-info-box h3 {
-            font-size: 22px;
-            color: #222;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .mj-info-box p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        /* Button Style */
-        .mj-action-btn {
-            display: inline-block;
-            background-color: #e08a1e;
-            color: #ffffff;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .mj-action-btn:hover {
-            background-color: transparent;
-            color: #e08a1e;
-            border-color: #e08a1e;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 991px) {
-            .mj-grid-layout { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 650px) {
-            .mj-grid-layout { grid-template-columns: 1fr; }
-            .mj-section-title { font-size: 28px; }
+        /* 5. Mobile Adjustments */
+        @media (max-width: 992px) { .bv-fresh-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { 
+            .bv-fresh-grid { grid-template-columns: 1fr; }
+            .bv-fresh-header h1 { font-size: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="mj-main-wrapper">
-        <h2 class="mj-section-title">Explore Our Services</h2>
+    <div class="bv-fresh-container">
+        
+        <div class="bv-fresh-header">
+            <h1>Chilled <span>Beverages</span></h1>
+            <p>Beat the heat with our fresh and icy drinks collection.</p>
+        </div>
 
-        <div class="mj-grid-layout">
+        <div class="bv-fresh-grid">
             
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
+            <div class="bv-fresh-card">
+                <div class="bv-fresh-img">
+                    <span class="bv-fresh-badge">POPULAR</span>
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600" alt="Orange Juice">
                 </div>
-                <div class="mj-info-box">
-                    <h3>Premium Coffee</h3>
-                    <p>Behtareen seeds se bani taaza coffee jo aapka din bana de.</p>
-                    <a href="#" class="mj-action-btn">Order Now</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Shopify Design</h3>
-                    <p>Professional Shopify stores ki mukammal customization aur setup.</p>
-                    <a href="#" class="mj-action-btn">Hire Me</a>
+                <div class="bv-fresh-info">
+                    <h3>Fresh Orange Juice</h3>
+                    <p>100% natural and freshly squeezed oranges with a touch of mint.</p>
+                    <span class="bv-fresh-price">350 PKR</span>
+                    <a href="#" class="bv-fresh-btn">Order Now</a>
                 </div>
             </div>
 
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Item">
+            <div class="bv-fresh-card">
+                <div class="bv-fresh-img">
+                    <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600" alt="Smoothie">
                 </div>
-                <div class="mj-info-box">
-                    <h3>Data Entry</h3>
-                    <p>Fast aur accurate data entry services aapke business ke liye.</p>
-                    <a href="#" class="mj-action-btn">Get Quote</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Web Coding</h3>
-                    <p>HTML, CSS aur JSON mein neat aur clean bug-free coding.</p>
-                    <a href="#" class="mj-action-btn">Contact</a>
+                <div class="bv-fresh-info">
+                    <h3>Berry Blast Smoothie</h3>
+                    <p>A thick blend of blueberries, strawberries, and Greek yogurt.</p>
+                    <span class="bv-fresh-price">480 PKR</span>
+                    <a href="#" class="bv-fresh-btn">Order Now</a>
                 </div>
             </div>
 
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600" alt="Item">
+            <div class="bv-fresh-card">
+                <div class="bv-fresh-img">
+                    <span class="bv-fresh-badge">ICE COLD</span>
+                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=600" alt="Lemonade">
                 </div>
-                <div class="mj-info-box">
-                    <h3>Logo Design</h3>
-                    <p>Aapke brand ke liye modern aur attractive digital animation aur logos.</p>
-                    <a href="#" class="mj-action-btn">See Portfolio</a>
+                <div class="bv-fresh-info">
+                    <h3>Mint Margarita</h3>
+                    <p>The ultimate refresher with crushed ice, mint, and lemon soda.</p>
+                    <span class="bv-fresh-price">290 PKR</span>
+                    <a href="#" class="bv-fresh-btn">Order Now</a>
                 </div>
             </div>
 
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600" alt="Item">
+            <div class="bv-fresh-card">
+                <div class="bv-fresh-img">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600" alt="Milkshake">
                 </div>
-                <div class="mj-info-box">
-                    <h3>Store Audit</h3>
-                    <p>Store performance check karein aur sales ko behtar banayein.</p>
-                    <a href="#" class="mj-action-btn">Start Audit</a>
+                <div class="bv-fresh-info">
+                    <h3>Chocolate Shake</h3>
+                    <p>Rich Belgian chocolate blended with creamy milk and ice cream.</p>
+                    <span class="bv-fresh-price">550 PKR</span>
+                    <a href="#" class="bv-fresh-btn">Order Now</a>
+                </div>
+            </div>
+
+            <div class="bv-fresh-card">
+                <div class="bv-fresh-img">
+                    <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600" alt="Mocktail">
+                </div>
+                <div class="bv-fresh-info">
+                    <h3>Tropical Sunrise</h3>
+                    <p>Layered mocktail with pineapple juice, grenadine, and soda.</p>
+                    <span class="bv-fresh-price">420 PKR</span>
+                    <a href="#" class="bv-fresh-btn">Order Now</a>
+                </div>
+            </div>
+
+            <div class="bv-fresh-card">
+                <div class="bv-fresh-img">
+                    <span class="bv-fresh-badge">NEW</span>
+                    <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600" alt="Iced Tea">
+                </div>
+                <div class="bv-fresh-info">
+                    <h3>Peach Iced Tea</h3>
+                    <p>Brewed black tea infused with sweet peach syrup and ice.</p>
+                    <span class="bv-fresh-price">320 PKR</span>
+                    <a href="#" class="bv-fresh-btn">Order Now</a>
                 </div>
             </div>
 
@@ -480,7 +450,7 @@
             </div>
 
             <!-- Col 2 — Facility -->
-           <div class="footer2-col-ftr2-d345">
+            <div class="footer2-col-ftr2-d345">
                 <h3 class="footer2-col-title-ftr2-d345">Facility</h3>
                 <ul class="footer2-links-ftr2-d345">
                     <li><a href="private-Room.html">Private Room</a></li>
@@ -507,9 +477,13 @@
                     <li><a href="Help-Us.html">Help Us</a></li>
                 </ul>
             </div>
+
         </div>
+
+        <!-- Bottom Bar -->
         <div class="footer2-bottom-ftr2-d345">
-            <p>&copy; 2024 Coffee. All Rights Reserved.</p>
+            <p>&copy; CodingLab. All rigths reserved</p>
         </div>
+
     </div>
 </div>

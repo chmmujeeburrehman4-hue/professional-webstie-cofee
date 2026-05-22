@@ -68,7 +68,7 @@
         
         <nav>
             <ul class="mj-nav-list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="about-1.html">About</a></li>
                 <li><a href="Menu.html">Menu</a></li>
                 <li><a href="Review.html">Review</a></li>
@@ -83,200 +83,144 @@
 </body>
 </html>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Service Grid</title>
-    
+    <title>Grand Event Room | Celebrations</title>
     <style>
-        /* Base Setup */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #fafafa; padding: 60px 0; }
+        /* 1. Reset & Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: #fffdfa; color: #444; }
 
-        .mj-main-wrapper {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 15px;
+        .ev-page-container { max-width: 1200px; margin: 0 auto; padding: 70px 20px; }
+
+        /* 2. Celebration Header */
+        .ev-page-header { text-align: center; margin-bottom: 60px; }
+        .ev-page-header h1 { font-size: 42px; color: #b8860b; text-transform: uppercase; margin-bottom: 15px; }
+        .ev-page-header p { font-size: 18px; color: #777; font-style: italic; }
+
+        /* 3. 6-Box Grid (Event Features) */
+        .ev-page-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            margin-bottom: 80px;
         }
 
-        .mj-section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 45px;
-            letter-spacing: -0.5px;
-        }
-
-        /* 6 Box Grid System */
-        .mj-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        /* New Unique Card Classes */
-        .mj-service-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #eaeaea;
+        .ev-page-card {
+            background: #fff;
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.1);
+            transition: 0.4s ease;
+            border: 1px solid #f3e5ab;
             text-align: center;
         }
 
-        .mj-service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #e08a1e;
-        }
+        .ev-page-card:hover { transform: translateY(-12px); box-shadow: 0 15px 40px rgba(184, 134, 11, 0.2); }
+        .ev-page-card img { width: 100%; height: 230px; object-fit: cover; }
 
-        .mj-image-holder {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-        }
+        .ev-page-info { padding: 25px; }
+        .ev-page-info h3 { font-size: 22px; color: #b8860b; margin-bottom: 12px; }
+        .ev-page-info p { font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 20px; }
 
-        .mj-image-holder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
+        .ev-page-btn { 
+            background: #b8860b; color: #fff; padding: 10px 25px; 
+            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px;
+            display: inline-block; transition: 0.3s;
         }
+        .ev-page-btn:hover { background: #333; }
 
-        .mj-service-card:hover .mj-image-holder img {
-            transform: scale(1.1);
-        }
+        /* 4. Event Gallery Section */
+        .ev-gallery-title { text-align: center; margin-bottom: 40px; font-size: 28px; color: #333; }
+        .ev-gallery-row { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .ev-gallery-img { width: 300px; height: 200px; border-radius: 10px; object-fit: cover; filter: grayscale(30%); transition: 0.3s; }
+        .ev-gallery-img:hover { filter: grayscale(0%); transform: scale(1.05); }
 
-        .mj-info-box {
-            padding: 25px;
-            flex-grow: 1;
-        }
-
-        .mj-info-box h3 {
-            font-size: 22px;
-            color: #222;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .mj-info-box p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        /* Button Style */
-        .mj-action-btn {
-            display: inline-block;
-            background-color: #e08a1e;
-            color: #ffffff;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .mj-action-btn:hover {
-            background-color: transparent;
-            color: #e08a1e;
-            border-color: #e08a1e;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 991px) {
-            .mj-grid-layout { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 650px) {
-            .mj-grid-layout { grid-template-columns: 1fr; }
-            .mj-section-title { font-size: 28px; }
+        /* Responsive */
+        @media (max-width: 992px) { .ev-page-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { 
+            .ev-page-grid { grid-template-columns: 1fr; }
+            .ev-page-header h1 { font-size: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="mj-main-wrapper">
-        <h2 class="mj-section-title">Explore Our Services</h2>
-
-        <div class="mj-grid-layout">
-            
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Premium Coffee</h3>
-                    <p>Behtareen seeds se bani taaza coffee jo aapka din bana de.</p>
-                    <a href="#" class="mj-action-btn">Order Now</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Shopify Design</h3>
-                    <p>Professional Shopify stores ki mukammal customization aur setup.</p>
-                    <a href="#" class="mj-action-btn">Hire Me</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Data Entry</h3>
-                    <p>Fast aur accurate data entry services aapke business ke liye.</p>
-                    <a href="#" class="mj-action-btn">Get Quote</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Web Coding</h3>
-                    <p>HTML, CSS aur JSON mein neat aur clean bug-free coding.</p>
-                    <a href="#" class="mj-action-btn">Contact</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Logo Design</h3>
-                    <p>Aapke brand ke liye modern aur attractive digital animation aur logos.</p>
-                    <a href="#" class="mj-action-btn">See Portfolio</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Store Audit</h3>
-                    <p>Store performance check karein aur sales ko behtar banayein.</p>
-                    <a href="#" class="mj-action-btn">Start Audit</a>
-                </div>
-            </div>
-
+    <div class="ev-page-container">
+        
+        <div class="ev-page-header">
+            <h1>Grand Event Room</h1>
+            <p>Make your special moments unforgettable with us.</p>
         </div>
+
+        <div class="ev-page-grid">
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600" alt="Birthday">
+                <div class="ev-page-info">
+                    <h3>Birthday Parties</h3>
+                    <p>Hamari team gubbaron aur lights se room ko party-ready bana degi.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600" alt="Engagement">
+                <div class="ev-page-info">
+                    <h3>Special Dinners</h3>
+                    <p>Family gatherings aur mangni ki rasam ke liye private aur classy space.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" alt="Music">
+                <div class="ev-page-info">
+                    <h3>Music & DJ</h3>
+                    <p>High-quality sound system aur dance floor ki sahulet available hai.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600" alt="Catering">
+                <div class="ev-page-info">
+                    <h3>Premium Catering</h3>
+                    <p>Custom menu choices—Pakistani se lekar Chinese tak sab hazir hai.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600" alt="Decor">
+                <div class="ev-page-info">
+                    <h3>Theme Decoration</h3>
+                    <p>Aapki marzi ka theme aur floral decoration humari zimmedari.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+
+            <div class="ev-page-card">
+                <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=600" alt="Photography">
+                <div class="ev-page-info">
+                    <h3>Photography</h3>
+                    <p>Aapke event ko hamesha ke liye yaadgaar banane ke liye professional shoot.</p>
+                    <a href="#" class="ev-page-btn">Check Packages</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="ev-gallery-title">Memories From Past Events</h2>
+        <div class="ev-gallery-row">
+            <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?w=400" class="ev-gallery-img">
+            <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=400" class="ev-gallery-img">
+            <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400" class="ev-gallery-img">
+        </div>
+
     </div>
 
 </body>
@@ -508,8 +452,11 @@
                 </ul>
             </div>
         </div>
+
+        <!-- Bottom Bar -->
         <div class="footer2-bottom-ftr2-d345">
-            <p>&copy; 2024 Coffee. All Rights Reserved.</p>
+            <p>&copy; CodingLab. All rigths reserved</p>
         </div>
+
     </div>
 </div>

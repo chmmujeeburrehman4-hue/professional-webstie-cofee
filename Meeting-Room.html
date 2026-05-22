@@ -68,7 +68,7 @@
         
         <nav>
             <ul class="mj-nav-list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="about-1.html">About</a></li>
                 <li><a href="Menu.html">Menu</a></li>
                 <li><a href="Review.html">Review</a></li>
@@ -88,195 +88,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Service Grid</title>
-    
+    <title>Professional Meeting Room | Mujeeb Tech</title>
     <style>
-        /* Base Setup */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #fafafa; padding: 60px 0; }
+        /* Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f8f9fa; color: #333; }
 
-        .mj-main-wrapper {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 15px;
+        .mr-site-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+        /* Header */
+        .mr-site-title { text-align: center; margin-bottom: 50px; }
+        .mr-site-title h1 { font-size: 38px; color: #2c3e50; margin-bottom: 10px; }
+        .mr-site-title span { color: #e08a1e; }
+
+        /* 6 Box Grid Section */
+        .mr-site-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 25px; 
+            margin-bottom: 60px;
         }
 
-        .mj-section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 45px;
-            letter-spacing: -0.5px;
-        }
-
-        /* 6 Box Grid System */
-        .mj-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        /* New Unique Card Classes */
-        .mj-service-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #eaeaea;
+        .mr-site-card {
+            background: #fff;
+            border-radius: 10px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
         }
 
-        .mj-service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #e08a1e;
-        }
+        .mr-site-card:hover { transform: translateY(-7px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .mr-site-card img { width: 100%; height: 180px; object-fit: cover; }
 
-        .mj-image-holder {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-        }
+        .mr-site-content { padding: 20px; text-align: center; }
+        .mr-site-content h3 { font-size: 19px; margin-bottom: 10px; color: #2c3e50; }
+        .mr-site-content p { font-size: 14px; color: #666; margin-bottom: 15px; }
 
-        .mj-image-holder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
+        .mr-site-btn { 
+            background: #2c3e50; color: white; padding: 8px 20px; 
+            border-radius: 4px; text-decoration: none; font-size: 13px; font-weight: 600;
         }
+        .mr-site-btn:hover { background: #e08a1e; }
 
-        .mj-service-card:hover .mj-image-holder img {
-            transform: scale(1.1);
-        }
+        /* Meeting Table Section */
+        .mr-table-section { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .mr-table-section h2 { margin-bottom: 20px; font-size: 24px; color: #2c3e50; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { text-align: left; background: #f4f4f4; padding: 12px; border-bottom: 2px solid #ddd; }
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 15px; }
+        .status-on { color: green; font-weight: 700; }
+        .status-off { color: red; font-weight: 700; }
 
-        .mj-info-box {
-            padding: 25px;
-            flex-grow: 1;
-        }
-
-        .mj-info-box h3 {
-            font-size: 22px;
-            color: #222;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .mj-info-box p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        /* Button Style */
-        .mj-action-btn {
-            display: inline-block;
-            background-color: #e08a1e;
-            color: #ffffff;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .mj-action-btn:hover {
-            background-color: transparent;
-            color: #e08a1e;
-            border-color: #e08a1e;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 991px) {
-            .mj-grid-layout { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 650px) {
-            .mj-grid-layout { grid-template-columns: 1fr; }
-            .mj-section-title { font-size: 28px; }
+        /* Responsive */
+        @media (max-width: 900px) { .mr-site-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { 
+            .mr-site-grid { grid-template-columns: 1fr; } 
+            .mr-table-section { overflow-x: auto; }
         }
     </style>
 </head>
 <body>
 
-    <div class="mj-main-wrapper">
-        <h2 class="mj-section-title">Explore Our Services</h2>
-
-        <div class="mj-grid-layout">
-            
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Premium Coffee</h3>
-                    <p>Behtareen seeds se bani taaza coffee jo aapka din bana de.</p>
-                    <a href="#" class="mj-action-btn">Order Now</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Shopify Design</h3>
-                    <p>Professional Shopify stores ki mukammal customization aur setup.</p>
-                    <a href="#" class="mj-action-btn">Hire Me</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Data Entry</h3>
-                    <p>Fast aur accurate data entry services aapke business ke liye.</p>
-                    <a href="#" class="mj-action-btn">Get Quote</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Web Coding</h3>
-                    <p>HTML, CSS aur JSON mein neat aur clean bug-free coding.</p>
-                    <a href="#" class="mj-action-btn">Contact</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Logo Design</h3>
-                    <p>Aapke brand ke liye modern aur attractive digital animation aur logos.</p>
-                    <a href="#" class="mj-action-btn">See Portfolio</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Store Audit</h3>
-                    <p>Store performance check karein aur sales ko behtar banayein.</p>
-                    <a href="#" class="mj-action-btn">Start Audit</a>
-                </div>
-            </div>
-
+    <div class="mr-site-container">
+        
+        <div class="mr-site-title">
+            <h1>Business <span>Meeting Room</span></h1>
+            <p>Professional environment for your important discussions.</p>
         </div>
+
+        <div class="mr-site-grid">
+            <div class="mr-site-card">
+                <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=500" alt="Meeting 1">
+                <div class="mr-site-content">
+                    <h3>LED Screens</h3>
+                    <p>High-definition screens for your presentations and video calls.</p>
+                    <a href="#" class="mr-site-btn">View More</a>
+                </div>
+            </div>
+
+            <div class="mr-site-card">
+                <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500" alt="Meeting 2">
+                <div class="mr-site-content">
+                    <h3>Whiteboards</h3>
+                    <p>Brainstorming ke liye premium whiteboards aur markers available hain.</p>
+                    <a href="#" class="mr-site-btn">View More</a>
+                </div>
+            </div>
+
+            <div class="mr-site-card">
+                <img src="https://images.unsplash.com/photo-1505373633562-e78d710ac50f?w=500" alt="Meeting 3">
+                <div class="mr-site-content">
+                    <h3>Sound Proof</h3>
+                    <p>Meeting room bilkul sound-proof hai taake koi disturb na kare.</p>
+                    <a href="#" class="mr-site-btn">View More</a>
+                </div>
+            </div>
+
+            <div class="mr-site-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500" alt="Meeting 4">
+                <div class="mr-site-content">
+                    <h3>Coffee Service</h3>
+                    <p>Meeting ke dauran unlimited fresh coffee service di jaye gi.</p>
+                    <a href="#" class="mr-site-btn">View More</a>
+                </div>
+            </div>
+
+            <div class="mr-site-card">
+                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=500" alt="Meeting 5">
+                <div class="mr-site-content">
+                    <h3>Capacity</h3>
+                    <p>10-12 logon ki seating capacity ke sath bara conference table.</p>
+                    <a href="#" class="mr-site-btn">View More</a>
+                </div>
+            </div>
+
+            <div class="mr-site-card">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500" alt="Meeting 6">
+                <div class="mr-site-content">
+                    <h3>Power Backup</h3>
+                    <p>24/7 UPS aur Generator facility taake kaam na ruke.</p>
+                    <a href="#" class="mr-site-btn">View More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mr-table-section">
+            <h2>Room Availability Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Room Type</th>
+                        <th>Price / Hour</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00 AM - 12:00 PM</td>
+                        <td>Conference Room A</td>
+                        <td>1500 PKR</td>
+                        <td class="status-on">Available</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 PM - 03:00 PM</td>
+                        <td>Interview Room B</td>
+                        <td>1000 PKR</td>
+                        <td class="status-off">Booked</td>
+                    </tr>
+                    <tr>
+                        <td>04:00 PM - 08:00 PM</td>
+                        <td>Executive Suite</td>
+                        <td>2500 PKR</td>
+                        <td class="status-on">Available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
 </body>
@@ -507,9 +478,13 @@
                     <li><a href="Help-Us.html">Help Us</a></li>
                 </ul>
             </div>
+
         </div>
+
+        <!-- Bottom Bar -->
         <div class="footer2-bottom-ftr2-d345">
-            <p>&copy; 2024 Coffee. All Rights Reserved.</p>
+            <p>&copy; CodingLab. All rigths reserved</p>
         </div>
+
     </div>
 </div>

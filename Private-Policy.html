@@ -83,200 +83,100 @@
 </body>
 </html>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Service Grid</title>
-    
+    <title>Privacy Policy | The Coffee House</title>
     <style>
-        /* Base Setup */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #fafafa; padding: 60px 0; }
+        /* 1. Global Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #fdfaf7; color: #2c1810; line-height: 1.8; padding: 80px 0; }
 
-        .mj-main-wrapper {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+        .pp-container { max-width: 900px; margin: 0 auto; padding: 40px; background: #fff; border-radius: 15px; border: 1px solid #efebe9; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
 
-        .mj-section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 45px;
-            letter-spacing: -0.5px;
-        }
+        /* 2. Header */
+        .pp-header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #e08a1e; padding-bottom: 20px; }
+        .pp-header h1 { font-size: 32px; color: #2c1810; text-transform: uppercase; }
+        .pp-header p { color: #8d6e63; font-size: 14px; margin-top: 5px; }
 
-        /* 6 Box Grid System */
-        .mj-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
+        /* 3. Content Sections */
+        .pp-section { margin-bottom: 30px; }
+        .pp-section h2 { font-size: 20px; color: #e08a1e; margin-bottom: 15px; border-left: 4px solid #e08a1e; padding-left: 15px; }
+        .pp-section p { color: #4e342e; font-size: 15px; text-align: justify; }
+        .pp-section ul { margin-left: 20px; margin-top: 10px; color: #4e342e; font-size: 15px; }
+        .pp-section ul li { margin-bottom: 8px; }
 
-        /* New Unique Card Classes */
-        .mj-service-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #eaeaea;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+        /* 4. Footer Note */
+        .pp-footer { margin-top: 50px; text-align: center; font-size: 13px; color: #8d6e63; border-top: 1px solid #eee; padding-top: 20px; }
 
-        .mj-service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #e08a1e;
-        }
-
-        .mj-image-holder {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .mj-image-holder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .mj-service-card:hover .mj-image-holder img {
-            transform: scale(1.1);
-        }
-
-        .mj-info-box {
-            padding: 25px;
-            flex-grow: 1;
-        }
-
-        .mj-info-box h3 {
-            font-size: 22px;
-            color: #222;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .mj-info-box p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        /* Button Style */
-        .mj-action-btn {
-            display: inline-block;
-            background-color: #e08a1e;
-            color: #ffffff;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .mj-action-btn:hover {
-            background-color: transparent;
-            color: #e08a1e;
-            border-color: #e08a1e;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 991px) {
-            .mj-grid-layout { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 650px) {
-            .mj-grid-layout { grid-template-columns: 1fr; }
-            .mj-section-title { font-size: 28px; }
+        @media (max-width: 600px) {
+            .pp-container { padding: 20px; border-radius: 0; }
+            .pp-header h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="mj-main-wrapper">
-        <h2 class="mj-section-title">Explore Our Services</h2>
-
-        <div class="mj-grid-layout">
-            
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Premium Coffee</h3>
-                    <p>Behtareen seeds se bani taaza coffee jo aapka din bana de.</p>
-                    <a href="#" class="mj-action-btn">Order Now</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Shopify Design</h3>
-                    <p>Professional Shopify stores ki mukammal customization aur setup.</p>
-                    <a href="#" class="mj-action-btn">Hire Me</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Data Entry</h3>
-                    <p>Fast aur accurate data entry services aapke business ke liye.</p>
-                    <a href="#" class="mj-action-btn">Get Quote</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Web Coding</h3>
-                    <p>HTML, CSS aur JSON mein neat aur clean bug-free coding.</p>
-                    <a href="#" class="mj-action-btn">Contact</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Logo Design</h3>
-                    <p>Aapke brand ke liye modern aur attractive digital animation aur logos.</p>
-                    <a href="#" class="mj-action-btn">See Portfolio</a>
-                </div>
-            </div>
-
-            <div class="mj-service-card">
-                <div class="mj-image-holder">
-                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600" alt="Item">
-                </div>
-                <div class="mj-info-box">
-                    <h3>Store Audit</h3>
-                    <p>Store performance check karein aur sales ko behtar banayein.</p>
-                    <a href="#" class="mj-action-btn">Start Audit</a>
-                </div>
-            </div>
-
+    <div class="pp-container">
+        
+        <div class="pp-header">
+            <h1>Privacy Policy</h1>
+            <p>Last Updated: May 2026</p>
         </div>
+
+        <div class="pp-section">
+            <h2>1. Introduction</h2>
+            <p>Welcome to The Coffee House. We value your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information when you visit our website or book our rooms.</p>
+        </div>
+
+        <div class="pp-section">
+            <h2>2. Information We Collect</h2>
+            <p>We may collect the following types of information:</p>
+            <ul>
+                <li><strong>Personal Data:</strong> Name, email address, and phone number when you fill out a booking form.</li>
+                <li><strong>Usage Data:</strong> Information about how you use our website, such as your IP address and browser type.</li>
+                <li><strong>Cookies:</strong> Small files stored on your device to improve your browsing experience.</li>
+            </ul>
+        </div>
+
+        <div class="pp-section">
+            <h2>3. How We Use Your Information</h2>
+            <p>The information we collect is used in the following ways:</p>
+            <ul>
+                <li>To process and confirm your room or table reservations.</li>
+                <li>To improve our customer service and website functionality.</li>
+                <li>To send promotional emails about new coffee blends or special events (only with your consent).</li>
+            </ul>
+        </div>
+
+        <div class="pp-section">
+            <h2>4. Data Security</h2>
+            <p>We implement a variety of security measures to maintain the safety of your personal information. Your data is contained behind secured networks and is only accessible by a limited number of persons who have special access rights.</p>
+        </div>
+
+        <div class="pp-section">
+            <h2>5. Third-Party Disclosure</h2>
+            <p>We do not sell, trade, or otherwise transfer your personal information to outside parties. This does not include website hosting partners and other parties who assist us in operating our website, so long as those parties agree to keep this information confidential.</p>
+        </div>
+
+        <div class="pp-section">
+            <h2>6. Your Rights</h2>
+            <p>You have the right to request access to the personal data we hold about you, to ask for corrections, or to request the deletion of your data at any time. Please contact us if you wish to exercise these rights.</p>
+        </div>
+
+        <div class="pp-section">
+            <h2>7. Contact Us</h2>
+            <p>If you have any questions regarding this Privacy Policy, you may contact us using the information below:</p>
+            <p style="margin-top: 10px; font-weight: 600;">Email: support@thecoffeehouse.com<br>Location: Punjab, Pakistan</p>
+        </div>
+
+        <div class="pp-footer">
+            &copy; 2026 The Coffee House. All Rights Reserved.
+        </div>
+
     </div>
 
 </body>
@@ -480,7 +380,7 @@
             </div>
 
             <!-- Col 2 — Facility -->
-           <div class="footer2-col-ftr2-d345">
+            <div class="footer2-col-ftr2-d345">
                 <h3 class="footer2-col-title-ftr2-d345">Facility</h3>
                 <ul class="footer2-links-ftr2-d345">
                     <li><a href="private-Room.html">Private Room</a></li>
@@ -508,8 +408,11 @@
                 </ul>
             </div>
         </div>
+
+        <!-- Bottom Bar -->
         <div class="footer2-bottom-ftr2-d345">
-            <p>&copy; 2024 Coffee. All Rights Reserved.</p>
+            <p>&copy; CodingLab. All rigths reserved</p>
         </div>
+
     </div>
 </div>
